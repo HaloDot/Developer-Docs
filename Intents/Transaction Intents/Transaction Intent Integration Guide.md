@@ -17,7 +17,7 @@ The Halo Dot Link application currently provides different mechanisms to integra
 
 Have a look at the image below as a guideline:
 
-![Integration Mechanisms](../assets/Android%20vs%20deeplinking.png)
+![Integration Mechanisms](../../assets/Android%20vs%20deeplinking.png)
 
 This guide will walk you through integration for each mechanism. If you are trying to do a TT3 intent integration, refer to the [TT3 Integration Guide](../TT3%20Intents/TT3%20Intent%20Integration%20Guide.md).
 
@@ -35,7 +35,7 @@ This section provides guidance on how to integrate your calling application with
 
 The `Merchant ID` can easy be found from the Halo Dot Go Merchant Portal. From the Merchant Portal, navigate to the Help Center Tab. There, under Try Deep Linking you will see your unique `Merchant ID`. See screenshot below:
 
-![Merchant Portal](../assets/Merchant%20Portal.png)
+![Merchant Portal](../../assets/Merchant%20Portal.png))
 
 ***Get x-api-key***
 
@@ -45,11 +45,11 @@ Right next to your `Merchant ID` on the Try Deep Linking page is the option to g
 
 Now you can generate a unique `API Key` for your user. Note the warning pop-up when generating an `API Key`.
 
-![API Key Warning](../assets/API%20Key%20Warning.png)
+![API Key Warning](../../assets/API%20Key%20Warning.png)
 
 Since an `API Key`is a sensitive value, it is stored as an encrypted value in our database and only presented in clear text once during the initial retrieval. It is the responsibility of the user to keep their `API Key` safe.
 
-![API Key](../assets/Generated%20API%20Key.png)
+![API Key](../../assets/Generated%20API%20Key.png)
 
 **2. Retrieve Transaction ID and JWT from Halo Backend**
 
