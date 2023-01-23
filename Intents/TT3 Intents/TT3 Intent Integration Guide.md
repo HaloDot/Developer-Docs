@@ -19,7 +19,7 @@ Have a look at the image below as a guideline:
 
 ![Integration Mechanisms](../assets/Android%20vs%20deeplinking.png)
 
-This guide will walk you through integration for each mechanism. If you are trying to do a TT3 intent integration, refer to the [TT3 Integration Guide](../TT3%20Intents/TT3%20Intent%20Integration%20Guide.md).
+This guide will walk you through integration for each mechanism. If you are trying to do a Transaction intent integration, refer to the [Transaction Integration Guide](../Transaction%20Intents/Transaction%20Intent%20Integration%20Guide.md).
 
 ## 2. Android Intents Mechanism ##
 
