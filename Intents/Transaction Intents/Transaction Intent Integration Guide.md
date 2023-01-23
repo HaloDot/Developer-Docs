@@ -1,12 +1,10 @@
 # Transaction Intent Integration Guide #
 
-## Contents ##
-
 - [Transaction Intent Integration Guide](#transaction-intent-integration-guide)
-  - [Contents](#contents)
   - [1. Intent Integration Methods](#1-intent-integration-methods)
   - [2. Android Intents Mechanism](#2-android-intents-mechanism)
   - [3. Deeplinking Mechanism](#3-deeplinking-mechanism)
+  - [4. Conclusion](#4-conclusion)
 
 
 ## 1. Intent Integration Methods ##
@@ -71,11 +69,11 @@ Parameter|Value|Description
 Request JSON body:
 ```json
 {
-  “amount”: <payment amount>,
-  “merchantId”: <from Merchant Portal>,
-  “paymentReference”: <payment reference>,
-  “currencyCode”: <ISO currency code>,
-  “timestamp”: <timestamp>
+    "merchantId" : 9, 
+    "paymentReference": "Intent Transaction",
+    "amount": 10, 
+    "timestamp": "Mon Jan 02 00:00:00 SAST 2023", 
+    "currencyCode": "ZAR" 
 }
 ```
 
@@ -87,10 +85,16 @@ https://kernelserver.prod.haloplus.io/1.0.8/consumer/intentTransaction
 
 ```
 curl 
--X POST 
--H "Content-Type: application/json"
--H "x-api-key: dm9sb2R5bXlyQHN5bnRoZXNpcy5jby56YS4yNDU3MTE0OC01NjUxLTQ5YTEtOTIzMi0zMTk0OTk4MGFhMDI="
--d '{"amount":1.0,"merchantId": 182, "paymentReference": "qwerty", "currencyCode": "ZAR", "timestamp": "Wed Oct 19 2022 15:41:40 GMT+0300"}'
+-X POST \
+-H "Content-Type: application/json" \
+-H "x-api-key: dm9sb2R5bXlyQHN5bnRoZXNpcy5jby56YS4yNDU3MTE0OC01NjUxLTQ5YTEtOTIzMi0zMTk0OTk4MGFhMDI=" \
+-d '{
+        "amount":1.0,
+        "merchantId": 9,
+        "paymentReference": "Intent Transaction",
+        "currencyCode": "ZAR",
+        "timestamp": "Mon Jan 02 00:00:00 SAST 2023"
+}'
 https://kernelserver.prod.haloplus.io/1.0.8/consumer/intentTransaction
 ```
 
@@ -123,7 +127,7 @@ The request is a POST with a JSON body with two variables:
 - username
 - password
 
-The username and password are the same as you use on the Halo.Go application.
+The username and password are the same as you use on the Halo Dot Go application.
 
 **3. Retrieve the Transaction URL from the Halo Backend**
 
@@ -144,15 +148,15 @@ Parameter|Value|Description
 Request JSON body:
 ```json
 {
-  “amount”: <payment amount>,
-  “merchantId”: <from Merchant Portal>,
-  “paymentReference”: <payment reference>,
-  “currencyCode”: <ISO currency code>,
-  “timestamp”: <timestamp>
-  “isConsumerApp”: <true || false>
-  “image”: {
-    “required”: <true || false>
-  }
+    "merchantId" : 9, 
+    "paymentReference": "URL Intent Transaction",
+    "amount": 10, 
+    "timestamp": "Mon Jan 02 00:00:00 SAST 2023", 
+    "currencyCode": "ZAR",
+    "isConsumerApp": false,
+    "image": {
+        "required": false
+    }
 }
 ```
 
@@ -166,8 +170,24 @@ curl
 -X POST
 -H "Content-Type: application/json"
 -H "Authorisation: Bearer dm9sb2R5bXlyQHN5bnRoZXNpcy5jby56YS4yNDU3MTE0OC01NjUxLTQ5YTEtOTIzMi0zMTk0OTk4MGFhMDI=" 
--d '{"amount":1.0,"merchantId": 182, "paymentReference": "qwerty", "currencyCode": "ZAR", "timestamp": "Wed Oct 19 2022 15:41:40 GMT+0300", “isConsumerApp”: false, “image”: {“required”: false}}'
-https://kernelserver.qa.haloplus.io/1.0.12/consumer/qrCode
+-d '{
+      "merchantId" : 9, 
+      "paymentReference": "URL Intent Transaction",
+      "amount": 10, 
+      "timestamp": "Mon Jan 02 00:00:00 SAST 2023", 
+      "currencyCode": "ZAR",
+      "isConsumerApp": false,
+      "image": {
+          "required": false
+      }
+    }'
+https://kernelserver.prod.haloplus.io/1.0.12/consumer/qrCode
 ```
 
 The generated link returned by the API call can then be used to invoke the Halo Dot Go application and start process transactions.
+
+## 4. Conclusion ##
+
+That concludes the guide to integrate the Halo Dot Go into your application. For any questions, please do not hesitate to reach out to the Halo Dot Team. 
+
+Not what you were looking for? If you are looking for the the TT3 Intent Integration guide, it is over [here](../TT3%20Intents/TT3%20Intent%20Integration%20Guide.md)
