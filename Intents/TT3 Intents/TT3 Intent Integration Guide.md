@@ -194,4 +194,4 @@ The generated link returned by the API call can then be used to invoke the Halo 
 
 That concludes the guide to integrate the Halo Dot Go into your application. For any questions, please do not hesitate to reach out to the Halo Dot Team. 
 
-Not what you were looking for? If you are looking for the the TT3 Intent Integration guide, it is over [here](../TT3%20Intents/TT3%20Intent%20Integration%20Guide.md)
+Not what you were looking for? If you are looking for the the TT3 Intent Integration guide, it is over [here](../Transaction%20Intents/Transaction%20Intent%20Integration%20Guide.md)
