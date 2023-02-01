@@ -1,0 +1,16 @@
+# Getting started with Intents
+
+* [Getting started with Intents](./#getting-started-with-intents)
+  * [1. Intent Use Cases](./#1-intent-use-cases)
+  * [2. Conclusion](./#2-conclusion)
+
+## 1. Intent Use Cases
+
+With Halo Dot Link the exact same technology can be used for different use-cases. However, the integration is slightly different to allow us to distiguish the use cases. The use-cases, and their specific integration guides are:
+
+* [Transactions / Payments Acceptance](transaction-intent-integration-guide.md)
+* [TT3 / Debicheck](tt3-intent-integration-guide.md)
+
+## 2. Conclusion
+
+Not what you are looking for? To get started with the Halo.SDK, have a look at [this guide](<../../SDK/1. Getting Started.md>)
