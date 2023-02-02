@@ -43,7 +43,7 @@ ISO Standard Timestamp
 ISO Standard Currency Codes
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="" %}
+{% swagger-response status="200: OK" description="Intent Transaction JWT" %}
 ```json
 {
     "id": "ffe12ca8-61e6-48f9-b09c-537818652988",
@@ -60,6 +60,8 @@ We provide a sample code to help you with the intent request function call. The 
 ## 2. Deeplinking Mechanism
 
 **1. Retrieve the Transaction URL from the Halo Backend**
+
+Step two of the Deeplinking integration is to initialize the transaction on the Halo Dot backend through an API request. You will need the `API Key` and `Merchant ID` from the previous step for this API call. The response will contain the URL that can be used to invoke the Halo Dot application.
 
 _**Let’s take a closer look at the API request.**_
 
