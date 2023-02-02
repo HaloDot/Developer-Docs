@@ -1,24 +1,17 @@
 # TT3 Intent Integration Guide
 
-* [TT3 Intent Integration Guide](tt3-intent-integration-guide.md#tt3-intent-integration-guide)
-  * [1. Intent Integration Methods](tt3-intent-integration-guide.md#1-intent-integration-methods)
-  * [2. Android Intents Mechanism](tt3-intent-integration-guide.md#2-android-intents-mechanism)
-  * [3. Deeplinking Mechanism](tt3-intent-integration-guide.md#3-deeplinking-mechanism)
-  * [4. Conclusion](tt3-intent-integration-guide.md#4-conclusion)
-
 ## 1. Intent Integration Methods
 
-The Halo Dot Link application currently provides different mechanisms to integrate our payments solution depending on your use-case. The different methods are:
+The Halo Dot Link application currently provides different mechanisms to integrate our payments solution depending on your use case. The different methods are:
 
 1. Android Intents Mechanism
 2. Deeplinking Mechanism
-3. Android Intents with Callback
 
 Have a look at the image below as a guideline:
 
-![Integration Mechanisms](<../../assets/Android vs deeplinking.png>)
+![Integration Mechanisms](<../assets/Android vs deeplinking.png>)
 
-This guide will walk you through integration for each mechanism. If you are trying to do a Transaction intent integration, refer to the [Transaction Integration Guide](transaction-intent-integration-guide.md).
+This guide will walk you through the integration of each mechanism. If you are trying to do a Transaction intent integration, refer to the [Transaction Integration Guide](transaction-intent-integration-guide.md).
 
 ## 2. Android Intents Mechanism
 
@@ -32,23 +25,23 @@ This section provides guidance on how to integrate your calling application with
 
 _**Get Merchant ID**_
 
-The `Merchant ID` can easy be found from the Halo Dot Go Merchant Portal. From the Merchant Portal, navigate to the Help Center Tab. There, under Try Deep Linking you will see your unique `Merchant ID`. See screenshot below:
+The `Merchant ID` can easily be found on the Halo Dot Go Merchant Portal. From the Merchant Portal, navigate to the Help Center Tab. There, under Try Deep Linking you will see your unique `Merchant ID`. See the screenshot below:
 
-![Merchant Portal](<../../assets/Merchant Portal.png>)
+![Merchant Portal](<../assets/Merchant Portal.png>)
 
 _**Get x-api-key**_
 
 Right next to your `Merchant ID` on the Try Deep Linking page is the option to generate your `API Key`. Selecting this option will transfer you to the User Management Page:
 
-![User Management Page](<../../assets/User Page.png>)
+![User Management Page](<../assets/User Page.png>)
 
 Now you can generate a unique `API Key` for your user. Note the warning pop-up when generating an `API Key`.
 
-![API Key Warning](<../../assets/API Key Warning.png>)
+![API Key Warning](<../assets/API Key Warning.png>)
 
 Since an `API Key`is a sensitive value, it is stored as an encrypted value in our database and only presented in clear text once during the initial retrieval. It is the responsibility of the user to keep their `API Key` safe.
 
-![API Key](<../../assets/Generated API Key.png>)
+![API Key](<../assets/Generated API Key.png>)
 
 **2. Retrieve Transaction ID and JWT from Halo Backend**
 
@@ -112,11 +105,11 @@ This section provides guidance on how to integrate your calling application with
 
 **1. Retrieve details from the Merchant Portal**
 
-Exact same proccess as described under the _**Get Merchant ID**_ subheading [here](tt3-intent-integration-guide.md#2-android-intents-mechanism)
+Exact same process as described under the _**Get Merchant ID**_ subheading [here](tt3-intent-integration-guide.md#2-android-intents-mechanism)
 
 **2. Retrieve JWT from the Halo Backend**
 
-Step two is where we deviate from the proccess of the Android Intent Mechanism. The API call for a endpoint to use with Deeplinking requires a `JWT token`.
+Step two is where we deviate from the process of the Android Intent Mechanism. The API call for an endpoint to use with Deeplinking requires a `JWT token`.
 
 One option to get a fresh `JWT token` is an API call. This is a very basic call.
 
@@ -127,7 +120,7 @@ The request is a POST with a JSON body with two variables:
 * username
 * password
 
-The username and password are the same as you use on the Halo.Go application.
+The username and password are the same as you use on Halo.Go application.
 
 **3. Retrieve the Transaction URL from the Halo Backend**
 
@@ -189,6 +182,6 @@ The generated link returned by the API call can then be used to invoke the Halo 
 
 ## 4. Conclusion
 
-That concludes the guide to integrate the Halo Dot Go into your application. For any questions, please do not hesitate to reach out to the Halo Dot Team.
+That concludes the guide to integrating the Halo Dot Go into your application. For any questions, please do not hesitate to reach out to the Halo Dot Team.
 
-Not what you were looking for? If you are looking for the the TT3 Intent Integration guide, it is over [here](transaction-intent-integration-guide.md)
+Not what you were looking for? If you are looking for the TT3 Intent Integration guide, it is over [here](transaction-intent-integration-guide.md)
