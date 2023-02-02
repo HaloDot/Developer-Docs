@@ -99,8 +99,8 @@ We provide sample code to help you with the intent request function call. The co
 
 This section provides guidance on how to integrate your calling application with the Halo Dot Go app through a URL. Invoking the Halo Dot Go application is an easy three-step process:
 
-1. Retrieve your Merchant ID from the Merchant Portal
-2. Retrieve JWT from the Halo Backend
+1. Retrieve your `Merchant ID` from the Merchant Portal
+2. Retrieve `JWT` from the Halo Backend
 3. Retrieve the Transaction URL from the Halo Backend
 
 **1. Retrieve details from the Merchant Portal**

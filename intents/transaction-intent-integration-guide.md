@@ -17,7 +17,7 @@ This guide will walk you through integration for each mechanism. If you are tryi
 
 This section provides guidance on how to integrate your calling application with the Halo Dot Go app through the Android Intent Mechanism. This is an easy three-step process:
 
-1. Retrieve your `Merchant ID` and `API Key` from the Merchant Portal. //LINK to portal
+1. Retrieve your `Merchant ID` and `API Key` from the [Merchant Portal](https://go.merchantportal.prod.haloplus.io/).
 2. Retrieve a `Transaction ID` and payment `JWT`from the Halo Backend.
 3. Send an Intent Request to the Halo Dot Go application.
 
@@ -33,7 +33,7 @@ _**Get x-api-key**_
 
 Right next to your `Merchant ID` on the Try Deep Linking page is the option to generate your `API Key`. Selecting this option will transfer you to the User Management Page:
 
-![User Management Page](../Intents/assets/User%20Page.png)
+![User Management Page](../assets/User%20Page.png)
 
 Now you can generate a unique `API Key` for your user. Note the warning pop-up when generating an `API Key`.
 
@@ -105,8 +105,8 @@ We provide a sample code to help you with the intent request function call. The 
 
 This section provides guidance on how to integrate your calling application with the Halo Dot Go app through a URL. Invoking the Halo Dot Go application is an easy three-step process:
 
-1. Retrieve your \`Merchant ID\` from the Merchant Portal
-2. Retrieve JWT from the Halo Backend
+1. Retrieve your `Merchant ID` from the [Merchant Portal](https://go.merchantportal.prod.haloplus.io/)
+2. Retrieve `JWT` from the Halo Backend
 3. Retrieve the Transaction URL from the Halo Backend
 
 **1. Retrieve details from the Merchant Portal**
