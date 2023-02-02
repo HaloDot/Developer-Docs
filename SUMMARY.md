@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Intents](README.md)
-  * [Getting started with Intents](intents/1.-getting-started.md)
+  * [Getting Started with Intents](intents/1.-getting-started.md)
   * [Transaction Intent Integration Guide](intents/transaction-intent-integration-guide.md)
   * [TT3 Intent Integration Guide](intents/tt3-intent-integration-guide.md)
 * [SDK](sdk/README.md)
