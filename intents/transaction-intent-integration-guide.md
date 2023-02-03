@@ -16,7 +16,7 @@ Step two of Android Intents Mechanism integration is to initialize the transacti
 
 _**Let’s take a closer look at the API request.**_
 
-{% swagger method="post" path="" baseUrl="https://kernelserver.prod.haloplus.io/1.0.8/consumer/intentTransaction" summary="Intent Transaction" expanded="false" %}
+{% swagger method="post" path="" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/intentTransaction" summary="Intent Transaction" expanded="false" %}
 {% swagger-description %}
 The call to the Halo Dot Backend to initiate an Intent Transaction.
 {% endswagger-description %}
@@ -47,6 +47,14 @@ ISO Standard Timestamp
 
 {% swagger-parameter in="body" name="currencyCode" type="String" required="true" %}
 ISO Standard Currency Codes
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" type="String" name="version" required="true" %}
+The backend version
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" type="String" name="env" required="true" %}
+The backend environment [dev, qa, prod]The backend environment [dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Intent Transaction JWT" %}
@@ -110,6 +118,14 @@ Indicate if the call is for a Consumer App
 
 {% swagger-parameter in="body" required="true" name="image" type="JSON" %}
 Set to true to generate a QR code - {"required": false} 
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="version" type="Stirng" required="true" %}
+The backend version
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="env" type="String" required="true" %}
+The backend environment [dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="URL to invoke the Halo Dot Application for a payment" %}

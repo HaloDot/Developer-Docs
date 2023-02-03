@@ -93,7 +93,7 @@ _**Let’s take a closer look at the API request.**_
 
 _****_
 
-{% swagger method="post" path="" baseUrl="https://kernelserver.prod.haloplus.io/1.0.12/consumer/tt3QRCode" summary="Transaction URL" %}
+{% swagger method="post" path="" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode" summary="Transaction URL" %}
 {% swagger-description %}
 The call to the Halo Dot Backend to initiate an Intent Transaction and retrieve a Transaction URL that can be used to invoke the Halo Dot Link application
 {% endswagger-description %}
@@ -136,6 +136,14 @@ Indicate if the call is for a Consumer App
 
 {% swagger-parameter in="body" required="true" name="image" type="JSON" %}
 Set to true to generate a QR code - {"required": false} 
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="version" type="String" required="true" %}
+The backend version.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="env" type="String" required="true" %}
+The backend environment [dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-response status="201: Created" description="URL to invoke the Halo Dot Application for a payment" %}

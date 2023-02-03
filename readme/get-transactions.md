@@ -23,11 +23,11 @@ The Transaction ID
 The backend version.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="path" name="env" type="String" %}
+{% swagger-parameter in="path" name="env" type="String" required="true" %}
 The backend environment [dev, qa, prod]
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="x-api-header" type="String" %}
+{% swagger-parameter in="header" name="x-api-header" type="String" required="true" %}
 The API Key retrieved from the Merchant Portal
 {% endswagger-parameter %}
 
