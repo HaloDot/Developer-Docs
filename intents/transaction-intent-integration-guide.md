@@ -54,7 +54,7 @@ The backend version
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" type="String" name="env" required="true" %}
-The backend environment [dev, qa, prod]The backend environment [dev, qa, prod]
+The backend environment [dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Intent Transaction JWT" %}
