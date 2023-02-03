@@ -1,3 +1,9 @@
+---
+description: >-
+  Integration with Halo.Go application for Transactions using Android Intent
+  Mechanisms or Deeplinking.
+---
+
 # Transaction Intent Integration Guide
 
 ## 1. Android Intents Mechanism

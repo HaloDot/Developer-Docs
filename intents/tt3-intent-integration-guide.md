@@ -1,3 +1,9 @@
+---
+description: >-
+  Integration with Halo.Go application for TT3 Transactions using Android Intent
+  Mechanisms or Deeplinking.
+---
+
 # TT3 Intent Integration Guide
 
 ## 1. Android Intents Mechanism
@@ -13,7 +19,7 @@ Step two of Android Intents Mechanism integration is to initialize the transacti
 
 _**Let’s take a closer look at the API request.**_&#x20;
 
-{% swagger method="post" path="" baseUrl="https://kernelserver.prod.haloplus.io/1.0.8/consumer/tt3IntentTransaction" summary="Intent Transaction" expanded="false" %}
+{% swagger method="post" path="" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3IntentTransaction" summary="Intent Transaction" expanded="false" %}
 {% swagger-description %}
 The call to the Halo Dot Backend to initiate a TT3 Intent Transaction.
 {% endswagger-description %}
@@ -48,6 +54,14 @@ ISO Standard Timestamp
 
 {% swagger-parameter in="body" name="contractReference" type="String" required="true" %}
 Reference of the Debit Order
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="version" type="String" required="true" %}
+The backend version.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="env" type="String" required="true" %}
+The backend environment [dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-response status="201: Created" description="TT3 Intent Transaction JWT" %}
