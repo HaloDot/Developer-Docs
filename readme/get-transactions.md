@@ -31,7 +31,39 @@ The backend environment [dev, qa, prod]
 The API Key retrieved from the Merchant Portal
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="" %}
+{% swagger-response status="200: OK" description="Status of the transaction" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+## 2. Get TT3 Transactions via API Call
+
+{% swagger method="get" path="/:reference" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode" summary="" %}
+{% swagger-description %}
+Asynchronously get details about TT3 transactions
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="version" type="String" required="true" %}
+The backend version.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" required="true" name="envv" type="String" %}
+The backend environment [dev, qa, prod]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name=":reference" type="String" %}
+The TT3 Transaction Reference
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="x-api-key" type="String" %}
+The API Key retrieved from the Merchant Portal
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Status of the transaction" %}
 ```javascript
 {
     // Response

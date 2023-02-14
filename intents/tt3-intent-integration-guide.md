@@ -149,7 +149,8 @@ The backend environment [dev, qa, prod]
 {% swagger-response status="201: Created" description="URL to invoke the Halo Dot Application for a payment" %}
 ```json
 {
-    "url": "https://halompos.page.link/DYfL4EZEzvAzBfVNA"
+    "url": "https://halompos.page.link/DYfL4EZEzvB52fVNA",
+    "reference": "c9e1debe-8156-444c-894d-e065d7169aa6"
 }
 ```
 {% endswagger-response %}
