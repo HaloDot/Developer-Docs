@@ -66,7 +66,7 @@ The API Key retrieved from the Merchant Portal
 {% swagger-response status="200: OK" description="Status of the transaction" %}
 ```javascript
 {
-    // Response
+    "qrCodeState": String
 }
 ```
 {% endswagger-response %}
