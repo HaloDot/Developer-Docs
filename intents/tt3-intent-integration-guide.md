@@ -118,6 +118,14 @@ ID number of the account holder
 Account Number of the Debit Order
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="collectionDay" type="Number" required="true" %}
+Debit order day
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="CreditorABSN" type="String" required="true" %}
+Description of Insurer (e.g. Name of insurer)
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="maxCollectionAmount" type="Integer" required="true" %}
 Max amount of the Debit Order
 {% endswagger-parameter %}
