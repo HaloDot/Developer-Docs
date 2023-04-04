@@ -127,7 +127,7 @@ Description of Insurer (e.g. Name of insurer)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="maxCollectionAmount" type="Integer" required="true" %}
-Max amount of the Debit Order
+Max amount of the Debit Order (Cents e.g. 10000 = R100 )
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
