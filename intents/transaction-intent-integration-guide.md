@@ -79,7 +79,7 @@ Step two of the Deeplinking integration is to initialize the transaction on the 
 
 _**Let’s take a closer look at the API request.**_
 
-{% swagger method="post" path="" baseUrl="https://kernelserver.prod.haloplus.io/1.0.12/consumer/qrCode" summary="Transaction URL" %}
+{% swagger method="post" path="" baseUrl="https://kernelserver.prod.haloplus.io/1.0.12/consumer/qrCode" summary="Deeplink Transaction" %}
 {% swagger-description %}
 The call to the Halo Dot Backend to initiate an Intent Transaction and retrieve a Transaction URL that can be used to invoke the Halo Dot Link application
 {% endswagger-description %}

@@ -1,10 +1,12 @@
 ---
-description: Asynchronously retrieve information about transactions
+description: >-
+  Asynchronously retrieve information about payment transactions and TT3
+  Transactions
 ---
 
 # Get Transaction Status and Details
 
-## Get Status of Transactions
+## Get Status of Transaction Request
 
 {% swagger method="get" path="/:reference" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/QRCode" summary="" %}
 {% swagger-description %}
@@ -32,7 +34,7 @@ The API Key retrieved from the Merchant Portal
 {
     "qrCodeState": "ResponseReceivedByPhone",
     "transactionId": "693b47d8-e325-4808-8f86-67e388fd35ec",
-    "merchantTransactionReference": "TT3 Test",
+    "merchantTransactionReference": "Transaction Test",
     "userId": "ebfbd120-76db-4a47-b040-f14ff7ee291f",
     "status": "AcknowledgedByPhone",
     "disposition": "Approved",
@@ -43,19 +45,37 @@ The API Key retrieved from the Merchant Portal
     "authorisationCode": "3CA40B2A",
     "createdAt": "2023-03-01T10:35:02.585Z",
     "updatedAt": "2023-03-01T10:35:05.499Z",
-    "collectionDay": "25",
-    "creditorABSN": "InsuranceABC",
-    "accountNumber": "123456789",
-    "idNumber": "",
-    "maxCollectionAmount: "1000",
-    "contractReference": "Example Ref",
     "paymentReference": "Example Ref";
 }
 ```
 {% endswagger-response %}
 {% endswagger %}
 
-## Get Status of TT3 Transactions
+### Transaction Response Descriptions:
+
+| Field                        | Description                                                                                    |
+| ---------------------------- | ---------------------------------------------------------------------------------------------- |
+| qrCodeState                  | Status of the deeplink created                                                                 |
+| transactionId                | ID of the transaction when created                                                             |
+| merchantTransactionReference | Reference entered by the merchant                                                              |
+| status                       | At what point the transaction is in the transaction flow (ResponseReceivedFromPaymentProvider) |
+| disposition                  | The outcome of the transaction (e.g. Approved)                                                 |
+| amount                       | Value of transaction (cents e.g. 10000 = R100)                                                 |
+| currency                     | Currency of the amount (e.g. ZAR, GBP)                                                         |
+| type                         | The type of transaction (e.g. Tap, TT3, Secure card reader)                                    |
+| responseCode                 | The ISO response code of the transaction                                                       |
+| authorisationCode            | Message Authorization Code (MAC)                                                               |
+| createdAt                    | ISO date when the transaction was created                                                      |
+| updatedAt                    | ISO date when the transaction was last updated                                                 |
+| collectionDay                | The day in which the debit order should be collected                                           |
+| creditorABSN                 | Name of Insurance Company                                                                      |
+| accountNumber                | Account number of the customer                                                                 |
+| idNumber                     | ID number of the customer                                                                      |
+| maxCollectionAmount          | The value of the debit order (cents e.g. 10000 = R100)                                         |
+| contractReference            | Reference of the debicheck transaction provided by customer                                    |
+| paymentReference             | Reference of the transaction provided by customer                                              |
+
+## Get Status of TT3 Transaction
 
 {% swagger method="get" path="/:reference" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode" summary="" %}
 {% swagger-description %}
@@ -87,7 +107,7 @@ The API Key retrieved from the Merchant Portal
     "userId": "ebfbd120-76db-4a47-b040-f14ff7ee291f",
     "status": "AcknowledgedByPhone",
     "disposition": "Approved",
-    "amount": "0.01",
+    "amount": 10000,
     "currency": "ZAR",
     "type": "DebiCheck",
     "responseCode": "0",
@@ -106,9 +126,29 @@ The API Key retrieved from the Merchant Portal
 {% endswagger-response %}
 {% endswagger %}
 
+### TT3 Transaction Response Descriptions:
 
-
-### Status of transaction descriptions:
+| Field                        | Description                                                                                    |
+| ---------------------------- | ---------------------------------------------------------------------------------------------- |
+| qrCodeState                  | Status of the deeplink created                                                                 |
+| transactionId                | ID of the transaction when created                                                             |
+| merchantTransactionReference | Reference entered by the merchant                                                              |
+| status                       | At what point the transaction is in the transaction flow (ResponseReceivedFromPaymentProvider) |
+| disposition                  | The outcome of the transaction (e.g. Approved)                                                 |
+| amount                       | Value of transaction (cents e.g. 10000 = R100)                                                 |
+| currency                     | Currency of the amount (e.g. ZAR, GBP)                                                         |
+| type                         | The type of transaction (e.g. Tap, TT3, Secure card reader)                                    |
+| responseCode                 | The ISO response code of the transaction                                                       |
+| authorisationCode            | Message Authorization Code (MAC)                                                               |
+| createdAt                    | ISO date when the transaction was created                                                      |
+| updatedAt                    | ISO date when the transaction was last updated                                                 |
+| collectionDay                | The day in which the debit order should be collected                                           |
+| creditorABSN                 | Name of Insurance Company                                                                      |
+| accountNumber                | Account number of the customer                                                                 |
+| idNumber                     | ID number of the customer                                                                      |
+| maxCollectionAmount          | The value of the debit order (cents e.g. 10000 = R100)                                         |
+| contractReference            | Reference of the debicheck transaction provided by customer                                    |
+| paymentReference             | Reference of the transaction provided by customer                                              |
 
 | QRCodeState                                | Description                                                                                    |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------- |
@@ -118,20 +158,20 @@ The API Key retrieved from the Merchant Portal
 | TransactionCreated                         | Card reading completed. Transaction has been sent to gateway.                                  |
 | ResponseReceivedByPhone (Definite Success) | The response from gateway is acknowledged by device.                                           |
 
-### Status Codes:
+### Status Options:
 
-| BadRequestReceived                   |   |
-| ------------------------------------ | - |
-| RequestReceived                      |   |
-| ErrorFindingConfig                   |   |
-| ReadyToSubmitToPaymentProcessor      |   |
-| SubmittedToPaymentProcessor          |   |
-| NoResponseFromPaymentProcessor       |   |
-| BadResponseFromPaymentProcessor      |   |
-| ResponseReceivedFromPaymentProcessor |   |
-| RespondedToPhone                     |   |
-| FailedToRespondToPhone               |   |
-| AcknowledgedByPhone                  |   |
+| BadRequestReceived                   | The request received from the device was badly formatted                  |
+| ------------------------------------ | ------------------------------------------------------------------------- |
+| RequestReceived                      | The backend received the transaction request from the device              |
+| ErrorFindingConfig                   | The backend was unable to find config for this transaction                |
+| ReadyToSubmitToPaymentProcessor      | The transaction is about to be submitted to the payment processor         |
+| SubmittedToPaymentProcessor          | The transaction has been submitted to the payment processor               |
+| NoResponseFromPaymentProcessor       | The payment processor did not respond to the payment request              |
+| BadResponseFromPaymentProcessor      | The payment processor returned an invalid response to the payment request |
+| ResponseReceivedFromPaymentProcessor | The payment processor responded to the request                            |
+| RespondedToPhone                     | The transaction outcome was returned to the device                        |
+| FailedToRespondToPhone               | The transaction outcome could not be returned to the device               |
+| AcknowledgedByPhone                  | The device acknowledged the outcome                                       |
 
 ### Response Codes:
 
@@ -176,3 +216,14 @@ The API Key retrieved from the Merchant Portal
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+### Transaction Details Status Options:
+
+| Status           |   |
+| ---------------- | - |
+| Approved         |   |
+| Declined         |   |
+| UnableToGoOnline |   |
+| Indeterminate    |   |
+| Voided           |   |
+
