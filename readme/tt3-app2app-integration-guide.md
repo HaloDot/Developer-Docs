@@ -4,7 +4,7 @@ description: >-
   Mechanisms or Deeplinking.
 ---
 
-# TT3 Intent Integration Guide
+# TT3 App to App Integration Guide
 
 ## 1. Android Intents Mechanism
 
@@ -91,7 +91,7 @@ The last step of Deeplinking integration is to retrieve the URL from the Halo Do
 
 _**Let’s take a closer look at the API request.**_
 
-_****_
+
 
 {% swagger method="post" path="" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode" summary="Transaction URL" %}
 {% swagger-description %}
@@ -172,4 +172,4 @@ The generated link returned by the API call can then be used to invoke the Halo 
 
 That concludes the guide to integrating the Halo Dot Go into your application. For any questions, please do not hesitate to reach out to the Halo Dot Team.
 
-Not what you were looking for? If you are looking for the TT3 Intent Integration guide, it is over [here](transaction-intent-integration-guide.md)
+Not what you were looking for? If you are looking for the TT3 Intent Integration guide, it is over [here](transaction-app2app-integration-guide.md)

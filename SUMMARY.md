@@ -2,8 +2,8 @@
 
 * [Intents](README.md)
   * [Getting Started with Intents](intents/1.-getting-started.md)
-  * [Transaction Intent Integration Guide](intents/transaction-intent-integration-guide.md)
-  * [TT3 Intent Integration Guide](intents/tt3-intent-integration-guide.md)
+  * [Transaction App to App Integration Guide](readme/transaction-app2app-integration-guide.md)
+  * [TT3 App to App Integration Guide](readme/tt3-app2app-integration-guide.md)
 * [SDK](sdk/README.md)
   * [Accessing the SDK](<SDK/1. Getting Started.md>)
   * [SDK Mobile Integration Guide](sdk/2.-sdk-integration-guide.md)
