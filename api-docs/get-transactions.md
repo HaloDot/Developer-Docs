@@ -53,27 +53,27 @@ The API Key retrieved from the Merchant Portal
 
 ### Transaction Response Descriptions:
 
-| Field                        | Description                                                                                    |
-| ---------------------------- | ---------------------------------------------------------------------------------------------- |
-| qrCodeState                  | Status of the deeplink created                                                                 |
-| transactionId                | ID of the transaction when created                                                             |
-| merchantTransactionReference | Reference entered by the merchant                                                              |
-| status                       | At what point the transaction is in the transaction flow (ResponseReceivedFromPaymentProvider) |
-| disposition                  | The outcome of the transaction (e.g. Approved)                                                 |
-| amount                       | Value of transaction (cents e.g. 10000 = R100)                                                 |
-| currency                     | Currency of the amount (e.g. ZAR, GBP)                                                         |
-| type                         | The type of transaction (e.g. Tap, TT3, Secure card reader)                                    |
-| responseCode                 | The ISO response code of the transaction                                                       |
-| authorisationCode            | Message Authorization Code (MAC)                                                               |
-| createdAt                    | ISO date when the transaction was created                                                      |
-| updatedAt                    | ISO date when the transaction was last updated                                                 |
-| collectionDay                | The day in which the debit order should be collected                                           |
-| creditorABSN                 | Name of Insurance Company                                                                      |
-| accountNumber                | Account number of the customer                                                                 |
-| idNumber                     | ID number of the customer                                                                      |
-| maxCollectionAmount          | The value of the debit order (cents e.g. 10000 = R100)                                         |
-| contractReference            | Reference of the debicheck transaction provided by customer                                    |
-| paymentReference             | Reference of the transaction provided by customer                                              |
+| Field                        | Description                                                                                    | Type                |
+| ---------------------------- | ---------------------------------------------------------------------------------------------- | ------------------- |
+| qrCodeState                  | Status of the deeplink created                                                                 | String (64)         |
+| transactionId                | ID of the transaction when created                                                             | String (UUID v4)    |
+| merchantTransactionReference | Reference entered by the merchant                                                              | String (255)        |
+| status                       | At what point the transaction is in the transaction flow (ResponseReceivedFromPaymentProvider) | String (64)         |
+| disposition                  | The outcome of the transaction (e.g. Approved)                                                 | String (32)         |
+| amount                       | Value of transaction (cents e.g. 10000 = R100)                                                 | String              |
+| currency                     | Currency of the amount (e.g. ZAR, GBP)                                                         | String (3)          |
+| type                         | The type of transaction (e.g. Tap, TT3, Secure card reader)                                    | String (32)         |
+| responseCode                 | The ISO response code of the transaction                                                       | Number              |
+| authorisationCode            | Message Authorization Code (MAC)                                                               | String (MAC Length) |
+| createdAt                    | ISO date when the transaction was created                                                      |                     |
+| updatedAt                    | ISO date when the transaction was last updated                                                 |                     |
+| collectionDay                | The day in which the debit order should be collected                                           | Number              |
+| creditorABSN                 | Name of Insurance Company                                                                      | String              |
+| accountNumber                | Account number of the customer                                                                 | String              |
+| idNumber                     | ID number of the customer                                                                      | String (13)         |
+| maxCollectionAmount          | The value of the debit order (cents e.g. 10000 = R100)                                         | String              |
+| contractReference            | Reference of the debicheck transaction provided by customer                                    | String (255)        |
+| paymentReference             | Reference of the transaction provided by customer                                              | String (255)        |
 
 ## Get Status of TT3 Transaction
 

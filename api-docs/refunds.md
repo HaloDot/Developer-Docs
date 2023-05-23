@@ -4,7 +4,7 @@ description: Refund a transaction
 
 # Refunds
 
-{% swagger method="post" path="/refund" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/transactions/transactionId" summary="" %}
+{% swagger method="post" path="/refund" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/transactions/{transactionId}" summary="" %}
 {% swagger-description %}
 Asynchronously get details about transactions
 {% endswagger-description %}
