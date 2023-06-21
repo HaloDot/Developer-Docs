@@ -45,7 +45,7 @@ Account Number of the Debit Order
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="maxCollectionAmount" type="Integer" required="true" %}
-Max amount of the Debit Order
+Max amount of the Debit Order (e.g. 100.01)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
@@ -126,8 +126,8 @@ Debit order day
 Description of Insurer (e.g. Name of insurer)
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="maxCollectionAmount" type="Integer" required="true" %}
-Max amount of the Debit Order (Cents e.g. 10000 = R100 )
+{% swagger-parameter in="body" name="maxCollectionAmount" type="String" required="true" %}
+Max amount of the Debit Order (e.g. 100.01)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}

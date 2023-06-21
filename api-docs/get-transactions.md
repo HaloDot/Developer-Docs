@@ -60,7 +60,7 @@ The API Key retrieved from the Merchant Portal
 | merchantTransactionReference | Reference entered by the merchant                                                              | String (255)     |
 | status                       | At what point the transaction is in the transaction flow (ResponseReceivedFromPaymentProvider) | String (64)      |
 | disposition                  | The outcome of the transaction (e.g. Approved)                                                 | String (32)      |
-| amount                       | Value of transaction (e.g R100)                                                                | String           |
+| amount                       | Value of transaction (e.g 100.01)                                                              | String           |
 | currency                     | Currency of the amount (e.g. ZAR, GBP)                                                         | String (3)       |
 | type                         | The type of transaction (e.g. Tap, TT3, Secure card reader)                                    | String (32)      |
 | responseCode                 | The ISO response code of the transaction                                                       | Number           |
@@ -137,7 +137,7 @@ The API Key retrieved from the Merchant Portal
 | creditorABSN        | Name of Insurance Company                                                                      | String              |
 | accountNumber       | Account number of the customer                                                                 | String              |
 | idNumber            | ID number of the customer                                                                      | String (13)         |
-| maxCollectionAmount | The value of the debit order ( R100)                                                           | String              |
+| maxCollectionAmount | The value of the debit order (100.01)                                                          | String              |
 | contractReference   | Reference of the debicheck transaction provided by customer                                    | String (255)        |
 
 <table><thead><tr><th width="374">QRCodeState</th><th>Description</th></tr></thead><tbody><tr><td>QRCodeGenerated</td><td>Initial call made to create the QR code/URL</td></tr><tr><td>QRCodeScanned</td><td>Device retrieves the transaction details that were provided when the QR code/URL was generated</td></tr><tr><td>TransactionStarted</td><td>Performed before reading the card, the device is ready to read card.</td></tr><tr><td>TransactionCreated</td><td>Card reading completed. Transaction has been sent to gateway.</td></tr><tr><td>ResponseReceivedByPhone (Definite Success)</td><td>The response from gateway is acknowledged by device.</td></tr></tbody></table>

@@ -4,7 +4,7 @@ description: >-
   Mechanisms or Deeplinking.
 ---
 
-# Transaction Intent Integration Guide
+# Transaction App to App Integration Guide
 
 ## 1. Android Intents Mechanism
 
@@ -37,8 +37,8 @@ Merchant ID from Merchant Portal
 Reference of the transaction
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
-Amount of the transaction
+{% swagger-parameter in="body" name="amount" type="String" required="true" %}
+Amount of the transaction (100.01)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
@@ -100,8 +100,8 @@ Merchant ID from Merchant Portal
 Reference of the transaction
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
-Amount of the transaction
+{% swagger-parameter in="body" name="amount" type="String" required="true" %}
+Amount of the  transaction (e.g. 100.01)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
