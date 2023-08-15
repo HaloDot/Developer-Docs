@@ -69,7 +69,7 @@ The backend environment [dev, qa, prod]
 
 **2. Send an Intent Request to the Halo Dot Go**
 
-We provide a sample code to help you with the intent request function call. The code is available on your Halo Dot Go Merchant Portal. The code is made available in this repo over here.
+We provide a sample code to help you with the intent request function call. The code is available in the App to app menu item in your Halo.Go Portal.
 
 ## 2. Deeplinking Mechanism
 
@@ -140,8 +140,8 @@ The backend environment [dev, qa, prod]
 
 **2. Use the Generated URL to call the Halo Dot Go application**
 
-The generated link returned by the API call can then be used to invoke the Halo Dot Go application and start process transactions.
+The generated link returned by the API call can then be used to invoke the Halo.Go application and start process transactions.
 
 ## 3. Conclusion
 
-That concludes the guide on integrating the Halo Dot Go into your application. For any questions, please do not hesitate to reach out to the Halo Dot Team.
+That concludes the guide on integrating the Halo.Go into your application. For any questions, please do not hesitate to reach out to the Halo Dot Team.
