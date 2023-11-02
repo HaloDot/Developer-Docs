@@ -44,7 +44,11 @@ ID number of the account holder
 Account Number of the Debit Order
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="maxCollectionAmount" type="Integer" required="true" %}
+{% swagger-parameter in="body" name="premiumAmount" type="String" required="true" %}
+Premium amount of the Debit Order (e.g. 100.01)
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="maxCollectionAmount" type="String" required="true" %}
 Max amount of the Debit Order (e.g. 100.01)
 {% endswagger-parameter %}
 
@@ -61,7 +65,7 @@ The backend version.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="env" type="String" required="true" %}
-The backend environment [dev, qa, prod]
+The backend environment \[dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-response status="201: Created" description="TT3 Intent Transaction JWT" %}
@@ -126,6 +130,10 @@ Debit order day
 Description of Insurer (e.g. Name of insurer)
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="premiumAmount" type="String" required="true" %}
+Premium amount of the Debit Order (e.g. 100.01)
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="maxCollectionAmount" type="String" required="true" %}
 Max amount of the Debit Order (e.g. 100.01)
 {% endswagger-parameter %}
@@ -143,7 +151,7 @@ Indicate if the call is for a Consumer App
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" required="true" name="image" type="JSON" %}
-Set to true to generate a QR code - {"required": false} 
+Set to true to generate a QR code - {"required": false}&#x20;
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="version" type="String" required="true" %}
@@ -151,7 +159,7 @@ The backend version.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="env" type="String" required="true" %}
-The backend environment [dev, qa, prod]
+The backend environment \[dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-response status="201: Created" description="URL to invoke the Halo Dot Application for a payment" %}

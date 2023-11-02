@@ -18,7 +18,7 @@ The backend version.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" required="true" name="env" type="String" %}
-The backend environment [dev, qa, prod]
+The backend environment \[dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name=":reference" type="String" required="true" %}
@@ -80,7 +80,7 @@ The backend version.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" required="true" name="env" type="String" %}
-The backend environment [dev, qa, prod]
+The backend environment \[dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name=":reference" type="String" required="true" %}
@@ -137,6 +137,7 @@ The API Key retrieved from the Merchant Portal
 | creditorABSN        | Name of Insurance Company                                                                      | String              |
 | accountNumber       | Account number of the customer                                                                 | String              |
 | idNumber            | ID number of the customer                                                                      | String (13)         |
+| premiumAmount       | Premium amount of the Debit Order (e.g. 100.01)                                                | String              |
 | maxCollectionAmount | The value of the debit order (100.01)                                                          | String              |
 | contractReference   | Reference of the debicheck transaction provided by customer                                    | String (255)        |
 
@@ -250,7 +251,7 @@ _**Let’s take a closer look at the API request.**_&#x20;
 
 {% swagger method="get" path="/:id" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/transactions" summary="" %}
 {% swagger-description %}
-Asynchronously get details about transactions 
+Asynchronously get details about transactions&#x20;
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name=":id" type="String" required="true" %}
@@ -262,7 +263,7 @@ The backend version.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="env" type="String" required="true" %}
-The backend environment [dev, qa, prod]
+The backend environment \[dev, qa, prod]
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="x-api-header" type="String" required="true" %}
