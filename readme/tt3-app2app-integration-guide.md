@@ -44,6 +44,10 @@ ID number of the account holder
 Account Number of the Debit Order
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="mandateType" type="Enum" required="true" %}
+There are three types: fixed, variable, usage
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="premiumAmount" type="String" required="true" %}
 Premium amount of the Debit Order (e.g. 100.01)
 {% endswagger-parameter %}
@@ -128,6 +132,10 @@ Debit order day
 
 {% swagger-parameter in="body" name="CreditorABSN" type="String" required="true" %}
 Description of Insurer (e.g. Name of insurer)
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="mandateType" type="Enum" required="true" %}
+There are three types: fixed, variable, usage
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="premiumAmount" type="String" required="true" %}
