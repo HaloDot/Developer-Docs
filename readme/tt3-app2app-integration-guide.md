@@ -56,6 +56,10 @@ Premium amount of the Debit Order (e.g. 100.01)
 Max amount of the Debit Order (e.g. 100.01)
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="instalmentVisibility" type="Enum" required="true" %}
+both, maximumOnly, instalmentOnly
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
 ISO Standard Timestamp
 {% endswagger-parameter %}
@@ -144,6 +148,10 @@ Premium amount of the Debit Order (e.g. 100.01)
 
 {% swagger-parameter in="body" name="maxCollectionAmount" type="String" required="true" %}
 Max amount of the Debit Order (e.g. 100.01)
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" type="Enum" required="true" name="instalmentVisibility" %}
+both, maximumOnly, instalmentOnly
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
