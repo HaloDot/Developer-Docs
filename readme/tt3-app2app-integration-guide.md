@@ -57,7 +57,7 @@ Max amount of the Debit Order (e.g. 100.01)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="instalmentVisibility" type="Enum" required="true" %}
-both, maximumOnly, instalmentOnly
+This field is to set what should be displayed to the user: both, maximumOnly, instalmentOnly
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
@@ -151,7 +151,7 @@ Max amount of the Debit Order (e.g. 100.01)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" type="Enum" required="true" name="instalmentVisibility" %}
-both, maximumOnly, instalmentOnly
+This field is to set what should be displayed to the user: both, maximumOnly, instalmentOnly
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
