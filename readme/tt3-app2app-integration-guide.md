@@ -111,7 +111,7 @@ The call to the Halo Dot Backend to initiate an Intent Transaction and retrieve 
 | accountNumber<mark style="color:red;">\*</mark>       | String  | Account Number of the Debit Order                                                            |
 | maxCollectionAmount<mark style="color:red;">\*</mark> | String  | Max amount of the Debit Order (e.g. 100.01)                                                  |
 | timestamp<mark style="color:red;">\*</mark>           | String  | ISO Standard Timestamp                                                                       |
-| contractReference<mark style="color:red;">\*</mark>   | Boolean | contractReference                                                                            |
+| contractReference<mark style="color:red;">\*</mark>   | String  | contractReference                                                                            |
 | image<mark style="color:red;">\*</mark>               | JSON    | Set to true to generate a QR code - {"required": false}                                      |
 | isConsumerApp                                         | Boolean | Indicate if the call is for a Consumer App                                                   |
 | collectionDay<mark style="color:red;">\*</mark>       | Number  | Debit order day                                                                              |
