@@ -19,72 +19,49 @@ Step two of Android Intents Mechanism integration is to initialize the transacti
 
 _**Let’s take a closer look at the API request.**_&#x20;
 
-{% swagger method="post" path="" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3IntentTransaction" summary="Intent Transaction" expanded="false" %}
-{% swagger-description %}
+## Intent Transaction
+
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3IntentTransaction`
+
 The call to the Halo Dot Backend to initiate a TT3 Intent Transaction.
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Content-Type" required="true" type="String" %}
-Content Type of the Request: application/json
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="header" type="String" name="x-api-key" required="true" %}
-The API Key retrieved from the Merchant Portal
-{% endswagger-parameter %}
+| Name                                      | Type   | Description                              |
+| ----------------------------------------- | ------ | ---------------------------------------- |
+| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
+| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
-{% swagger-parameter in="body" name="merchantId" type="Integer" required="true" %}
-Merchant ID from Merchant Portal
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="body" name="id" type="String" %}
-ID number of the account holder
-{% endswagger-parameter %}
+| Name                                           | Type   | Description                                    |
+| ---------------------------------------------- | ------ | ---------------------------------------------- |
+| Content-Type<mark style="color:red;">\*</mark> | String | Content Type of the Request: application/json  |
+| x-api-key<mark style="color:red;">\*</mark>    | String | The API Key retrieved from the Merchant Portal |
 
-{% swagger-parameter in="body" name="accountNumber" required="true" type="String" %}
-Account Number of the Debit Order
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="mandateType" type="Enum" required="true" %}
-There are three types: fixed, variable, usage
-{% endswagger-parameter %}
+| Name                                                  | Type    | Description                                                                                  |
+| ----------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| merchantId<mark style="color:red;">\*</mark>          | Integer | Merchant ID from Merchant Portal                                                             |
+| accountNumber<mark style="color:red;">\*</mark>       | String  | Account Number of the Debit Order                                                            |
+| maxCollectionAmount<mark style="color:red;">\*</mark> | String  | Max amount of the Debit Order (e.g. 100.01)                                                  |
+| timestamp<mark style="color:red;">\*</mark>           | String  | ISO Standard Timestamp                                                                       |
+| contractReference<mark style="color:red;">\*</mark>   | String  | Reference of the Debit Order                                                                 |
+| id                                                    | String  | ID number of the account holder                                                              |
+| instalmentAmount                                      | String  | Instalment amount of the Debit Order (e.g. 100.01)                                           |
+| instalmentVisibility                                  | Enum    | This field is to set what should be displayed to the user: both, maximumOnly, instalmentOnly |
 
-{% swagger-parameter in="body" name="premiumAmount" type="String" required="true" %}
-Premium amount of the Debit Order (e.g. 100.01)
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="maxCollectionAmount" type="String" required="true" %}
-Max amount of the Debit Order (e.g. 100.01)
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="instalmentVisibility" type="Enum" required="true" %}
-This field is to set what should be displayed to the user: both, maximumOnly, instalmentOnly
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
-ISO Standard Timestamp
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="contractReference" type="String" required="true" %}
-Reference of the Debit Order
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" name="version" type="String" required="true" %}
-The backend version.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" name="env" type="String" required="true" %}
-The backend environment \[dev, qa, prod]
-{% endswagger-parameter %}
-
-{% swagger-response status="201: Created" description="TT3 Intent Transaction JWT" %}
+{% tabs %}
+{% tab title="201: Created TT3 Intent Transaction JWT" %}
 ```json
 {
     "id": "ffe12ca8-61e6-48f9-b09c-537818652988",
     "token": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3IiOiJoYWxvIiwiYXVkX2ZpbmdlcnByaW50cyI6InNoYTI1Ni96YzZjOTdKaEtQWlVhK3JJclZxamtuREUxbERjREs3N0c0MXNEbysxYXkwPSIsImtza19waW4iOiJzaGEyNTYvMVpuYTRUNlBLY0ozS3EvZGJWeWxiOG42MmovQWRRWVV6V3JqLzRzazVROD0iLCJtZXJjaGFudElkIjozMTcsImlhdCI6MTY3NTMzMzQyMCwiZXhwIjoxNjc1MzM0MzIwLCJhdWQiOiJrZXJuZWxzZXJ2ZXIucWEuaGFsb3BsdXMuaW8iLCJpc3MiOiJhdXRoc2VydmVyLnFhLmhhbG9wbHVzLmlvIiwic3ViIjoiYzQwMWIxYTYtNDI5Ny00NDM1LTg3OWItMDAyNTZhY2E4N2NjIn0.fCsDOSlkOz2nqjAohFYZNIO6f5cp4xbLer6s4o9BVJckoPRwxShdQLBxOySoYhioZ2WaYWFO-qhxDQjQG8RsPYByGsgIgQtVRaudS_IGI4Xv0KG8p0A9isX8jlw8KEeZwEuaj-zHUg4DAO4n3ydVAd3NjM1oysMKUbdn5MmW-wH7keutNCKtq9qF_hF0A8s3rUCO8UsB5QuXzz18VfPFe6fs3LoOGMHiKvgRWlhpKhrfXWQAw8vpwCLeY58vfa8LFGixMS526322s_dGTxkKC5f366GBWgoqHDyporidblCy64T5MbgifL41kiXahNQs6B4eLmuWeUTosHQ6jUajiEsa61QnUY1K9Pv3kT7bFDYy4Hvu2mdktzpV2p6MpM9gH3E4LLZGKhOJLjkf8LP7NsE-h4aN1XlKHJmMex8yMaAgV-_wxLCDPrK0Q7KgKGTNRByi8HkluhYYuMlslXXjN13ff8alMxCEBeyrkubi_X-tlTeilSmEF1tbWZ4WYiUfbNNqsfFDBKfErQc8dpJz22ou2DxyBd8_esBG1aEv4c5dIPciu_i2vG6FQADW_CNHmc01UnfymyReatc1c0WzFQS_OmoS3yaxymnvlCY_pD_bcZUr-5s60IQnu1D1wCeRfM1QE6-xSJvWx7sbXpbdNGbv1_PFM4xQTsuE6fBxzis"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **2. Send an Intent Request to the Halo Dot Go**
 
@@ -105,88 +82,53 @@ _**Let’s take a closer look at the API request.**_
 
 
 
-{% swagger method="post" path="" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode" summary="Transaction URL" %}
-{% swagger-description %}
+## Transaction URL
+
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode`
+
 The call to the Halo Dot Backend to initiate an Intent Transaction and retrieve a Transaction URL that can be used to invoke the Halo Dot Link application
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Content-Type" required="true" type="String" %}
-Content Type of the Request: application/json
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="header" name="x-api-key" required="true" type="String" %}
-The API Key retrieved from the Merchant Portal
-{% endswagger-parameter %}
+| Name                                      | Type   | Description                              |
+| ----------------------------------------- | ------ | ---------------------------------------- |
+| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
+| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
-{% swagger-parameter in="body" name="merchantId" type="Integer" required="true" %}
-Merchant ID from Merchant Portal
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="body" name="id" type="String" required="true" %}
-ID number of the account holder
-{% endswagger-parameter %}
+| Name                                           | Type   | Description                                    |
+| ---------------------------------------------- | ------ | ---------------------------------------------- |
+| Content-Type<mark style="color:red;">\*</mark> | String | Content Type of the Request: application/json  |
+| x-api-key<mark style="color:red;">\*</mark>    | String | The API Key retrieved from the Merchant Portal |
 
-{% swagger-parameter in="body" name="accountNumber" type="String" required="true" %}
-Account Number of the Debit Order
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="collectionDay" type="Number" required="true" %}
-Debit order day
-{% endswagger-parameter %}
+| Name                                                  | Type    | Description                                                                                  |
+| ----------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| merchantId<mark style="color:red;">\*</mark>          | Integer | Merchant ID from Merchant Portal                                                             |
+| id<mark style="color:red;">\*</mark>                  | String  | ID number of the account holder                                                              |
+| accountNumber<mark style="color:red;">\*</mark>       | String  | Account Number of the Debit Order                                                            |
+| maxCollectionAmount<mark style="color:red;">\*</mark> | String  | Max amount of the Debit Order (e.g. 100.01)                                                  |
+| timestamp<mark style="color:red;">\*</mark>           | String  | ISO Standard Timestamp                                                                       |
+| contractReference<mark style="color:red;">\*</mark>   | Boolean | contractReference                                                                            |
+| image<mark style="color:red;">\*</mark>               | JSON    | Set to true to generate a QR code - {"required": false}                                      |
+| isConsumerApp                                         | Boolean | Indicate if the call is for a Consumer App                                                   |
+| collectionDay<mark style="color:red;">\*</mark>       | Number  | Debit order day                                                                              |
+| CreditorABSN<mark style="color:red;">\*</mark>        | String  | Description of Insurer (e.g. Name of insurer)                                                |
+| instalmentAmount                                      | String  | Instalment amount of the Debit Order (e.g. 100.01)                                           |
+| instalmentVisibility                                  | Enum    | This field is to set what should be displayed to the user: both, maximumOnly, instalmentOnly |
 
-{% swagger-parameter in="body" name="CreditorABSN" type="String" required="true" %}
-Description of Insurer (e.g. Name of insurer)
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="mandateType" type="Enum" required="true" %}
-There are three types: fixed, variable, usage
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="premiumAmount" type="String" required="true" %}
-Premium amount of the Debit Order (e.g. 100.01)
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="maxCollectionAmount" type="String" required="true" %}
-Max amount of the Debit Order (e.g. 100.01)
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" type="Enum" required="true" name="instalmentVisibility" %}
-This field is to set what should be displayed to the user: both, maximumOnly, instalmentOnly
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
-ISO Standard Timestamp
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" required="true" name="contractReference" type="Boolean" %}
-contractReference
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" type="Boolean" name="isConsumerApp" %}
-Indicate if the call is for a Consumer App
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" required="true" name="image" type="JSON" %}
-Set to true to generate a QR code - {"required": false}&#x20;
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" name="version" type="String" required="true" %}
-The backend version.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" name="env" type="String" required="true" %}
-The backend environment \[dev, qa, prod]
-{% endswagger-parameter %}
-
-{% swagger-response status="201: Created" description="URL to invoke the Halo Dot Application for a payment" %}
+{% tabs %}
+{% tab title="201: Created URL to invoke the Halo Dot Application for a payment" %}
 ```json
 {
     "url": "https://halompos.page.link/DYfL4EZEzvB52fVNA",
     "reference": "c9e1debe-8156-444c-894d-e065d7169aa6"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **2. Use the Generated URL to call the Halo Dot Go application**
 

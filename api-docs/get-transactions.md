@@ -8,28 +8,31 @@ description: >-
 
 ## Get Status of Transaction Request
 
-{% swagger method="get" path="/:reference" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/QRCode" summary="" %}
-{% swagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/QRCode/:reference`
+
 Asynchronously get Status of a transactions invoked through a link.
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="version" type="String" required="true" %}
-The backend version.
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="path" required="true" name="env" type="String" %}
-The backend environment \[dev, qa, prod]
-{% endswagger-parameter %}
+| Name                                      | Type   | Description                              |
+| ----------------------------------------- | ------ | ---------------------------------------- |
+| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
+| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
-{% swagger-parameter in="query" name=":reference" type="String" required="true" %}
-The id received when creating the intent transaction
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="header" name="x-api-key" type="String" required="true" %}
-The API Key retrieved from the Merchant Portal
-{% endswagger-parameter %}
+| Name                                         | Type   | Description                                          |
+| -------------------------------------------- | ------ | ---------------------------------------------------- |
+| :reference<mark style="color:red;">\*</mark> | String | The id received when creating the intent transaction |
 
-{% swagger-response status="200: OK" description="Status of the transaction" %}
+#### Headers
+
+| Name                                        | Type   | Description                                    |
+| ------------------------------------------- | ------ | ---------------------------------------------- |
+| x-api-key<mark style="color:red;">\*</mark> | String | The API Key retrieved from the Merchant Portal |
+
+{% tabs %}
+{% tab title="200: OK Status of the transaction" %}
 ```javascript
 {
     "qrCodeState": "ResponseReceivedByPhone",
@@ -48,8 +51,8 @@ The API Key retrieved from the Merchant Portal
     "paymentReference": "Example Ref";
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Transaction Response Descriptions:
 
@@ -70,28 +73,31 @@ The API Key retrieved from the Merchant Portal
 
 ## Get Status of TT3 Transaction
 
-{% swagger method="get" path="/:reference" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode" summary="" %}
-{% swagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode/:reference`
+
 Asynchronously get Status about TT3 transactions invoked through a link.
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="version" type="String" required="true" %}
-The backend version.
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="path" required="true" name="env" type="String" %}
-The backend environment \[dev, qa, prod]
-{% endswagger-parameter %}
+| Name                                      | Type   | Description                              |
+| ----------------------------------------- | ------ | ---------------------------------------- |
+| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
+| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
-{% swagger-parameter in="query" name=":reference" type="String" required="true" %}
-The reference received in the response when the link is created
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="header" name="x-api-key" type="String" required="true" %}
-The API Key retrieved from the Merchant Portal
-{% endswagger-parameter %}
+| Name                                         | Type   | Description                                                     |
+| -------------------------------------------- | ------ | --------------------------------------------------------------- |
+| :reference<mark style="color:red;">\*</mark> | String | The reference received in the response when the link is created |
 
-{% swagger-response status="200: OK" description="Status of the transaction" %}
+#### Headers
+
+| Name                                        | Type   | Description                                    |
+| ------------------------------------------- | ------ | ---------------------------------------------- |
+| x-api-key<mark style="color:red;">\*</mark> | String | The API Key retrieved from the Merchant Portal |
+
+{% tabs %}
+{% tab title="200: OK Status of the transaction" %}
 ```javascript
 {
     "qrCodeState": "ResponseReceivedByPhone",
@@ -112,34 +118,37 @@ The API Key retrieved from the Merchant Portal
     "accountNumber": "123456789",
     "idNumber": "",
     "maxCollectionAmount: "1000",
+    "instalmentAmount": "750",
+    "instalmentVisibility": "both",
     "contractReference": "Example Ref",
     "paymentReference": "Example Ref";
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### TT3 Transaction Response Descriptions:
 
-| Field               | Description                                                                                    | Type                |
-| ------------------- | ---------------------------------------------------------------------------------------------- | ------------------- |
-| qrCodeState         | Status of the deeplink created                                                                 | String (64)         |
-| transactionId       | ID of the transaction when created                                                             | String (UUID v4)    |
-| status              | At what point the transaction is in the transaction flow (ResponseReceivedFromPaymentProvider) | String (64)         |
-| disposition         | The outcome of the transaction (e.g. Approved)                                                 | String (32)         |
-| currency            | Currency of the amount (e.g. ZAR, GBP)                                                         | String (3)          |
-| type                | The type of transaction (e.g. Tap, TT3, Secure card reader)                                    | String (32)         |
-| responseCode        | The ISO response code of the transaction                                                       | Number              |
-| authorisationCode   | Message Authorization Code (MAC)                                                               | String (MAC Length) |
-| createdAt           | ISO date when the transaction was created                                                      |                     |
-| updatedAt           | ISO date when the transaction was last updated                                                 |                     |
-| collectionDay       | The day in which the debit order should be collected                                           | Number              |
-| creditorABSN        | Name of Insurance Company                                                                      | String              |
-| accountNumber       | Account number of the customer                                                                 | String              |
-| idNumber            | ID number of the customer                                                                      | String (13)         |
-| premiumAmount       | Premium amount of the Debit Order (e.g. 100.01)                                                | String              |
-| maxCollectionAmount | The value of the debit order (100.01)                                                          | String              |
-| contractReference   | Reference of the debicheck transaction provided by customer                                    | String (255)        |
+| Field                | Description                                                                                    | Type                |
+| -------------------- | ---------------------------------------------------------------------------------------------- | ------------------- |
+| qrCodeState          | Status of the deeplink created                                                                 | String (64)         |
+| transactionId        | ID of the transaction when created                                                             | String (UUID v4)    |
+| status               | At what point the transaction is in the transaction flow (ResponseReceivedFromPaymentProvider) | String (64)         |
+| disposition          | The outcome of the transaction (e.g. Approved)                                                 | String (32)         |
+| currency             | Currency of the amount (e.g. ZAR, GBP)                                                         | String (3)          |
+| type                 | The type of transaction (e.g. Tap, TT3, Secure card reader)                                    | String (32)         |
+| responseCode         | The ISO response code of the transaction                                                       | Number              |
+| authorisationCode    | Message Authorization Code (MAC)                                                               | String (MAC Length) |
+| createdAt            | ISO date when the transaction was created                                                      |                     |
+| updatedAt            | ISO date when the transaction was last updated                                                 |                     |
+| collectionDay        | The day in which the debit order should be collected                                           | Number              |
+| creditorABSN         | Name of Insurance Company                                                                      | String              |
+| accountNumber        | Account number of the customer                                                                 | String              |
+| idNumber             | ID number of the customer                                                                      | String (13)         |
+| instalmentAmount     | Instalment amount of the Debit Order (e.g. 100.01)                                             | String              |
+| instalmentVisibility | both, maximumOnly, instalmentOnly                                                              | Enum                |
+| maxCollectionAmount  | The value of the debit order (100.01)                                                          | String              |
+| contractReference    | Reference of the debicheck transaction provided by customer                                    | String (255)        |
 
 <table><thead><tr><th width="374">QRCodeState</th><th>Description</th></tr></thead><tbody><tr><td>QRCodeGenerated</td><td>Initial call made to create the QR code/URL</td></tr><tr><td>QRCodeScanned</td><td>Device retrieves the transaction details that were provided when the QR code/URL was generated</td></tr><tr><td>TransactionStarted</td><td>Performed before reading the card, the device is ready to read card.</td></tr><tr><td>TransactionCreated</td><td>Card reading completed. Transaction has been sent to gateway.</td></tr><tr><td>ResponseReceivedByPhone (Definite Success)</td><td>The response from gateway is acknowledged by device.</td></tr></tbody></table>
 
@@ -249,28 +258,31 @@ It is possible to get more information about a transaction asynchronously with a
 
 _**Let’s take a closer look at the API request.**_&#x20;
 
-{% swagger method="get" path="/:id" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/transactions" summary="" %}
-{% swagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/{version}/transactions/:id`
+
 Asynchronously get details about transactions&#x20;
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name=":id" type="String" required="true" %}
-The Transaction ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="path" name="version" type="String" required="true" %}
-The backend version.
-{% endswagger-parameter %}
+| Name                                      | Type   | Description                              |
+| ----------------------------------------- | ------ | ---------------------------------------- |
+| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
+| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
-{% swagger-parameter in="path" name="env" type="String" required="true" %}
-The backend environment \[dev, qa, prod]
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="header" name="x-api-header" type="String" required="true" %}
-The API Key retrieved from the Merchant Portal
-{% endswagger-parameter %}
+| Name                                  | Type   | Description        |
+| ------------------------------------- | ------ | ------------------ |
+| :id<mark style="color:red;">\*</mark> | String | The Transaction ID |
 
-{% swagger-response status="200: OK" description="Details of the transaction" %}
+#### Headers
+
+| Name                                           | Type   | Description                                    |
+| ---------------------------------------------- | ------ | ---------------------------------------------- |
+| x-api-header<mark style="color:red;">\*</mark> | String | The API Key retrieved from the Merchant Portal |
+
+{% tabs %}
+{% tab title="200: OK Details of the transaction" %}
 ```json
 {
     "id": "1d87e52a-ed08-4b5a-96c6-3f6942a1dc17",
@@ -701,8 +713,8 @@ The API Key retrieved from the Merchant Portal
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 {% swagger src="../.gitbook/assets/swaggerDoc (2).yaml" path="/transactions/{transactionId}:" method="get" %}
 [swaggerDoc (2).yaml](<../.gitbook/assets/swaggerDoc (2).yaml>)
