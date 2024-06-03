@@ -8,5 +8,8 @@
   * [Accessing the SDK](<SDK/1. Getting Started.md>)
   * [SDK Mobile Integration Guide](sdk/2.-sdk-integration-guide.md)
 * [API Docs](api-docs/README.md)
+  * [Authentication](api-docs/authentication.md)
   * [Get Transaction Status and Details](api-docs/get-transactions.md)
   * [Refunds](api-docs/refunds.md)
+* [Tap on Own Device](tap-on-own-device/README.md)
+  * [Create the Checkout](tap-on-own-device/create-the-checkout.md)

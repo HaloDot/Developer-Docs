@@ -16,56 +16,46 @@ Step two of Android Intents Mechanism integration is to initialize the transacti
 
 _**Let’s take a closer look at the API request.**_
 
-{% swagger method="post" path="" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/consumer/intentTransaction" summary="Intent Transaction" expanded="false" %}
-{% swagger-description %}
+## Intent Transaction
+
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/intentTransaction`
+
 The call to the Halo Dot Backend to initiate an Intent Transaction.
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Content-Type" required="true" type="String" %}
-Content Type of the Request: application/json
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="header" type="String" name="x-api-key" required="true" %}
-The API Key retrieved from the Merchant Portal
-{% endswagger-parameter %}
+| Name                                      | Type   | Description                              |
+| ----------------------------------------- | ------ | ---------------------------------------- |
+| version<mark style="color:red;">\*</mark> | String | The backend version                      |
+| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
-{% swagger-parameter in="body" name="merchantId" type="Integer" required="true" %}
-Merchant ID from Merchant Portal
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="body" name="paymentReference" required="true" type="String" %}
-Reference of the transaction
-{% endswagger-parameter %}
+| Name                                           | Type   | Description                                    |
+| ---------------------------------------------- | ------ | ---------------------------------------------- |
+| Content-Type<mark style="color:red;">\*</mark> | String | Content Type of the Request: application/json  |
+| x-api-key<mark style="color:red;">\*</mark>    | String | The API Key retrieved from the Merchant Portal |
 
-{% swagger-parameter in="body" name="amount" type="String" required="true" %}
-Amount of the transaction (100.01)
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
-ISO Standard Timestamp
-{% endswagger-parameter %}
+| Name                                               | Type    | Description                        |
+| -------------------------------------------------- | ------- | ---------------------------------- |
+| merchantId<mark style="color:red;">\*</mark>       | Integer | Merchant ID from Merchant Portal   |
+| paymentReference<mark style="color:red;">\*</mark> | String  | Reference of the transaction       |
+| amount<mark style="color:red;">\*</mark>           | String  | Amount of the transaction (100.01) |
+| timestamp<mark style="color:red;">\*</mark>        | String  | ISO Standard Timestamp             |
+| currencyCode<mark style="color:red;">\*</mark>     | String  | ISO Standard Currency Codes        |
 
-{% swagger-parameter in="body" name="currencyCode" type="String" required="true" %}
-ISO Standard Currency Codes
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" type="String" name="version" required="true" %}
-The backend version
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" type="String" name="env" required="true" %}
-The backend environment [dev, qa, prod]
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Intent Transaction JWT" %}
+{% tabs %}
+{% tab title="200: OK Intent Transaction JWT" %}
 ```json
 {
     "id": "ffe12ca8-61e6-48f9-b09c-537818652988",
     "token": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3IiOiJoYWxvIiwiYXVkX2ZpbmdlcnByaW50cyI6InNoYTI1Ni96YzZjOTdKaEtQWlVhK3JJclZxamtuREUxbERjREs3N0c0MXNEbysxYXkwPSIsImtza19waW4iOiJzaGEyNTYvMVpuYTRUNlBLY0ozS3EvZGJWeWxiOG42MmovQWRRWVV6V3JqLzRzazVROD0iLCJtZXJjaGFudElkIjozMTcsImlhdCI6MTY3NTMzMzQyMCwiZXhwIjoxNjc1MzM0MzIwLCJhdWQiOiJrZXJuZWxzZXJ2ZXIucWEuaGFsb3BsdXMuaW8iLCJpc3MiOiJhdXRoc2VydmVyLnFhLmhhbG9wbHVzLmlvIiwic3ViIjoiYzQwMWIxYTYtNDI5Ny00NDM1LTg3OWItMDAyNTZhY2E4N2NjIn0.fCsDOSlkOz2nqjAohFYZNIO6f5cp4xbLer6s4o9BVJckoPRwxShdQLBxOySoYhioZ2WaYWFO-qhxDQjQG8RsPYByGsgIgQtVRaudS_IGI4Xv0KG8p0A9isX8jlw8KEeZwEuaj-zHUg4DAO4n3ydVAd3NjM1oysMKUbdn5MmW-wH7keutNCKtq9qF_hF0A8s3rUCO8UsB5QuXzz18VfPFe6fs3LoOGMHiKvgRWlhpKhrfXWQAw8vpwCLeY58vfa8LFGixMS526322s_dGTxkKC5f366GBWgoqHDyporidblCy64T5MbgifL41kiXahNQs6B4eLmuWeUTosHQ6jUajiEsa61QnUY1K9Pv3kT7bFDYy4Hvu2mdktzpV2p6MpM9gH3E4LLZGKhOJLjkf8LP7NsE-h4aN1XlKHJmMex8yMaAgV-_wxLCDPrK0Q7KgKGTNRByi8HkluhYYuMlslXXjN13ff8alMxCEBeyrkubi_X-tlTeilSmEF1tbWZ4WYiUfbNNqsfFDBKfErQc8dpJz22ou2DxyBd8_esBG1aEv4c5dIPciu_i2vG6FQADW_CNHmc01UnfymyReatc1c0WzFQS_OmoS3yaxymnvlCY_pD_bcZUr-5s60IQnu1D1wCeRfM1QE6-xSJvWx7sbXpbdNGbv1_PFM4xQTsuE6fBxzis"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **2. Send an Intent Request to the Halo Dot Go**
 
@@ -79,64 +69,37 @@ Step two of the Deeplinking integration is to initialize the transaction on the 
 
 _**Let’s take a closer look at the API request.**_
 
-{% swagger method="post" path="" baseUrl="https://kernelserver.prod.haloplus.io/1.0.12/consumer/qrCode" summary="Deeplink Transaction" %}
-{% swagger-description %}
+## Deeplink Transaction
+
+<mark style="color:green;">`POST`</mark> `https://kernelserver.prod.haloplus.io/1.0.12/consumer/qrCode`
+
 The call to the Halo Dot Backend to initiate an Intent Transaction and retrieve a Transaction URL that can be used to invoke the Halo Dot Link application
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Content-Type" required="true" type="String" %}
-Content Type of the Request: application/json
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="header" name="x-api-key" required="true" type="String" %}
-The API Key retrieved from the Merchant Portal
-{% endswagger-parameter %}
+<table><thead><tr><th width="174">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>version<mark style="color:red;">*</mark></td><td>Stirng</td><td>The backend version</td></tr><tr><td>env<mark style="color:red;">*</mark></td><td>String</td><td>The backend environment [dev, qa, prod]</td></tr></tbody></table>
 
-{% swagger-parameter in="body" name="merchantId" type="Integer" required="true" %}
-Merchant ID from Merchant Portal
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="body" name="paymentReference" type="String" required="true" %}
-Reference of the transaction
-{% endswagger-parameter %}
+| Name                                           | Type   | Description                                    |
+| ---------------------------------------------- | ------ | ---------------------------------------------- |
+| Content-Type<mark style="color:red;">\*</mark> | String | Content Type of the Request: application/json  |
+| x-api-key<mark style="color:red;">\*</mark>    | String | The API Key retrieved from the Merchant Portal |
 
-{% swagger-parameter in="body" name="amount" type="String" required="true" %}
-Amount of the  transaction (e.g. 100.01)
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="timestamp" type="String" required="true" %}
-ISO Standard Timestamp
-{% endswagger-parameter %}
+<table><thead><tr><th width="214">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>merchantId<mark style="color:red;">*</mark></td><td>Integer</td><td>Merchant ID from Merchant Portal</td></tr><tr><td>paymentReference<mark style="color:red;">*</mark></td><td>String</td><td>Reference of the transaction</td></tr><tr><td>amount<mark style="color:red;">*</mark></td><td>String</td><td>Amount of the  transaction (e.g. 100.01)</td></tr><tr><td>timestamp<mark style="color:red;">*</mark></td><td>String</td><td>ISO Standard Timestamp</td></tr><tr><td>currencyCode<mark style="color:red;">*</mark></td><td>String</td><td>ISO Standard Currency Codes</td></tr><tr><td>isConsumerApp<mark style="color:red;">*</mark></td><td>Boolean</td><td>Indicate if the call is for a Consumer App</td></tr><tr><td>image<mark style="color:red;">*</mark></td><td>JSON</td><td>Set to true to generate a QR code - {"required": false} </td></tr></tbody></table>
 
-{% swagger-parameter in="body" name="currencyCode" type="String" required="true" %}
-ISO Standard Currency Codes
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" required="true" name="isConsumerApp" type="Boolean" %}
-Indicate if the call is for a Consumer App
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" required="true" name="image" type="JSON" %}
-Set to true to generate a QR code - {"required": false} 
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" name="version" type="Stirng" required="true" %}
-The backend version
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" name="env" type="String" required="true" %}
-The backend environment [dev, qa, prod]
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="URL to invoke the Halo Dot Application for a payment" %}
+{% tabs %}
+{% tab title="200: OK URL to invoke the Halo Dot Application for a payment" %}
 ```json
 {
     "url": "https://halompos.page.link/DYfL4EZEzvAzBfBAS",
     "reference": "c9e1were-8156-444c-894d-e065d71366a6"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **2. Use the Generated URL to call the Halo Dot Go application**
 
