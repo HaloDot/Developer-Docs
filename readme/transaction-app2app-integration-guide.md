@@ -6,6 +6,31 @@ description: >-
 
 # Transaction App to App Integration Guide
 
+## Architecture&#x20;
+
+To initiate the transaction, the Customer Application must initiate the call between itself and  the Customer Backend first that the it wants to create intent transaction, this information is then passed  though, packaged, sealed and stored in Halo Backend. The process is as follows:&#x20;
+
+1. Consumer Application creates a request  to the Customer Backend to create an Intent transaction.
+2. The Consumer Backend will pass through the consumer transaction details:&#x20;
+
+* the reference Number&#x20;
+* currency,
+* transaction amounts, &#x20;
+* merchandising information out to the Halo backend.&#x20;
+
+3. The Halo Backend packages it up, stores it as a "blob".&#x20;
+4. With that it creates a transaction ID along with a signed JWT which is  sent back to the Customer Backend then passed to the Customer App to start the Transaction. The Consumer app will do a look up which returns all the transaction information.
+5. So, at time of  transacting, the Consumer Application would have received a transaction ID and since the app itself cannot do a transaction, the Halo Backend signs a JWT specifically for this transaction to Identify it.
+6. &#x20;These are passed through to the SDK which uses the information to start the actually payment cycle process.&#x20;
+7. The SDK then request transaction details from the Halo Backend.&#x20;
+8. The Halo Backend will return the packaged transaction information. . These are then passed into the SDK for further processing.
+
+For authorization of the transaction, that is where the PIN Entry and Attestation process begins, so to authenticate the transaction.
+
+The Architecture is drawn below:&#x20;
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Intent and Transaction Process</p></figcaption></figure>
+
 ## 1. Android Intents Mechanism
 
 Steps in this section: 1. Retrieve a `Transaction ID` and payment `JWT`from the Halo Backend. 2. Send an Intent Request to the Halo Dot Go application.
