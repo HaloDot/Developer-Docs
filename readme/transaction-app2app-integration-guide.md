@@ -31,7 +31,7 @@ The Architecture is drawn below:&#x20;
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Intent Processing</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Transaction/Payment Processing</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Transaction/Payment Processing</p></figcaption></figure>
 
 
 
