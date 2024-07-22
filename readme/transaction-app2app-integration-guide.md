@@ -13,7 +13,7 @@ To initiate the transaction, the Customer Application must initiate the call bet
 1. Consumer Application creates a request  to the Customer Backend to create an Intent transaction.
 2. The Consumer Backend will pass through the consumer transaction details:&#x20;
 
-* the reference Number&#x20;
+* the reference number&#x20;
 * currency,
 * transaction amounts, &#x20;
 * merchandising information out to the Halo backend.&#x20;
@@ -33,7 +33,16 @@ The Architecture is drawn below:&#x20;
 
 <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Transaction/Payment Processing</p></figcaption></figure>
 
+The UI data that is presented to the User so to Confirm the transaction and its details, this includes;
 
+* Transaction ID (Reference Number)&#x20;
+* Transaction Details&#x20;
+  * Currency
+  * Transaction Amount&#x20;
+  * Merchandiser Details&#x20;
+  * Account/Card Details&#x20;
+    * Account Name
+    * Account Number
 
 ## 1. Android Intents Mechanism
 
