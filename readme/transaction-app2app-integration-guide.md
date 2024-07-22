@@ -29,7 +29,11 @@ For authorization of the transaction, that is where the PIN Entry and Attestatio
 
 The Architecture is drawn below:&#x20;
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Intent and Transaction Process</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Intent Processing</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Transaction/Payment Processing</p></figcaption></figure>
+
+
 
 ## 1. Android Intents Mechanism
 
