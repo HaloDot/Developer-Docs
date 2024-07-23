@@ -13,3 +13,4 @@
   * [Refunds](api-docs/refunds.md)
 * [Tap on Own Device](tap-on-own-device/README.md)
   * [Create the Checkout](tap-on-own-device/create-the-checkout.md)
+* [Security Guidance](security-guidance.md)

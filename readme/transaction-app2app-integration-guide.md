@@ -22,31 +22,35 @@ To initiate the transaction, the Customer Application must initiate the call bet
 4. With that it creates a transaction ID along with a signed JWT which is  sent back to the Customer Backend then passed to the Customer App to start the Transaction. The Consumer app will do a look up which returns all the transaction information.
 5. So, at time of  transacting, the Consumer Application would have received a transaction ID and since the app itself cannot do a transaction, the Halo Backend signs a JWT specifically for this transaction to Identify it.
 6. &#x20;These are passed through to the SDK which uses the information to start the actually payment cycle process.&#x20;
-7. The SDK then request transaction details from the Halo Backend.&#x20;
-8. The Halo Backend will return the packaged transaction information. . These are then passed into the SDK for further processing.
 
-For authorization of the transaction, that is where the PIN Entry and Attestation process begins, so to authenticate the transaction.
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Once the Transaction ID and the JWT are received by the client App, it passes it to
+
+1. The SDK will Start the Customer Transaction
+2. The SDK then request transaction details from the Halo Backend.&#x20;
+3. The Halo Backend will return the packaged transaction information.
+4. The SDK will the begin processing the payment&#x20;
+5. The transaction details being authorized in the SDK will the proceed to be sent through to the Client Backend and the Halo Backend for storage, and the 3rd Party Payment Processing for further processing
 
 The Architecture is drawn below:&#x20;
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Intent Processing</p></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Transaction/Payment Processing</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 The UI data that is presented to the User so to Confirm the transaction and its details, this includes;
 
 * Transaction ID (Reference Number)&#x20;
+* Merchandiser Details&#x20;
 * Transaction Details&#x20;
   * Currency
-  * Transaction Amount&#x20;
-  * Merchandiser Details&#x20;
+  * Transaction Amount
   * Account/Card Details&#x20;
-    * Account Name
-    * Account Number
+
+For transactions that require authorization, that is where the PIN Entry and Attestation process begins, so to authenticate the transaction.
 
 ## 1. Android Intents Mechanism
 
-Steps in this section: 1. Retrieve a `Transaction ID` and payment `JWT`from the Halo Backend. 2. Send an Intent Request to the Halo Dot Go application.
+Steps in this section: 1. Retrieve a `Transaction ID` and payment `JWT` from the Halo Backend. 2. Send an Intent Request to the Halo Dot Go application.
 
 **1. Retrieve Transaction ID and JWT from Halo Backend**
 
