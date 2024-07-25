@@ -6,7 +6,7 @@ description: >-
 
 # Transaction App to App Integration Guide
 
-## Architecture&#x20;
+## 1. Architecture&#x20;
 
 To initiate the transaction, the Customer Application must initiate the call between itself and  the Customer Backend first that the it wants to create intent transaction, this information is then passed  though, packaged, sealed and stored in Halo Backend. The process is as follows:&#x20;
 
@@ -48,7 +48,7 @@ The UI data that is presented to the User so to Confirm the transaction and its 
 
 For transactions that require authorization, that is where the PIN Entry and Attestation process begins, so to authenticate the transaction.
 
-## 1. Android Intents Mechanism
+## 2. Android Intents Mechanism
 
 Steps in this section: 1. Retrieve a `Transaction ID` and payment `JWT` from the Halo Backend. 2. Send an Intent Request to the Halo Dot Go application.
 
@@ -103,7 +103,7 @@ The call to the Halo Dot Backend to initiate an Intent Transaction.
 
 We provide a sample code to help you with the intent request function call. The code is available in the App to app menu item in your Halo.Go Portal.
 
-## 2. Deeplinking Mechanism
+## 3. Deeplinking Mechanism
 
 **1. Retrieve the Transaction URL from the Halo Backend**
 
@@ -111,7 +111,7 @@ Step two of the Deeplinking integration is to initialize the transaction on the 
 
 _**Let’s take a closer look at the API request.**_
 
-## Deeplink Transaction
+## 4. Deeplink Transaction
 
 <mark style="color:green;">`POST`</mark> `https://kernelserver.prod.haloplus.io/1.0.12/consumer/qrCode`
 
@@ -147,6 +147,6 @@ The call to the Halo Dot Backend to initiate an Intent Transaction and retrieve 
 
 The generated link returned by the API call can then be used to invoke the Halo.Go application and start process transactions.
 
-## 3. Conclusion
+## 5. Conclusion
 
 That concludes the guide on integrating the Halo.Go into your application. For any questions, please do not hesitate to reach out to the Halo Dot Team.

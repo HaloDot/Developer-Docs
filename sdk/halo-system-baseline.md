@@ -20,19 +20,19 @@ The Halo Dot Solution is an Android Application that enables the process tap on 
 
 Android version 10
 
-| **OS**                                                                 | **Version**           | **Status**       | **Reason for deprecation**                |
-| ---------------------------------------------------------------------- | --------------------- | ---------------- | ----------------------------------------- |
-| <p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p>Android</p> | version 6 Marshmallow | DEPRECATED       | Version does not receive security patches |
-|                                                                        | version 7 Nougat      | DEPRECATED       | Version does not receive security patches |
-|                                                                        | version 8 Oreo        | DEPRECATED       | Version does not receive security patches |
-|                                                                        | version 9 Pie         | DEPRECATED       | Version does not receive security patches |
-|                                                                        | Version 10            |  ACTIVE BASELINE |                                           |
-|                                                                        | Version 11            |  ACTIVE          |                                           |
-|                                                                        | Version 12            |  ACTIVE          |                                           |
-|                                                                        | Version 13            |  ACTIVE          |                                           |
-|                                                                        | Version 14            |  ACTIVE          |                                           |
-| iOS                                                                    | Not applicable        | NOT SUPPORTED    |                                           |
-| Harmony OS                                                             | Not supported         | In development   |                                           |
+|              **OS**             | **Version**           | **Status**           | **Reason for deprecation**                |
+| :-----------------------------: | --------------------- | -------------------- | ----------------------------------------- |
+| <p> </p><p> </p><p> Android</p> | version 6 Marshmallow | DEPRECATED           | Version does not receive security patches |
+|                                 | version 7 Nougat      | DEPRECATED           | Version does not receive security patches |
+|                                 | version 8 Oreo        | DEPRECATED           | Version does not receive security patches |
+|                                 | version 9 Pie         | DEPRECATED           | Version does not receive security patches |
+|                                 | Version 10            |  ACTIVE **BASELINE** |                                           |
+|                                 | Version 11            |  ACTIVE              |                                           |
+|                                 | Version 12            |  ACTIVE              |                                           |
+|                                 | Version 13            |  ACTIVE              |                                           |
+|                                 | Version 14            |  ACTIVE              |                                           |
+|               iOS               | Not applicable        | NOT SUPPORTED        |                                           |
+|            Harmony OS           | Not supported         | In development       |                                           |
 
 ### Devices Supported <a href="#devices-supported" id="devices-supported"></a>
 
@@ -46,3 +46,4 @@ All devices that are currently compatible for the Halo Dot Solution are defined 
 | - | ---------------- | --------- | -------------------------------------------- | -------------- |
 | 1 | Wiseasy          | R1        | Mastercard, Visa, American Express, Discover |                |
 
+The [Acceptance Process to Update COTS platform to Baseline](https://synthesis-software.atlassian.net/wiki/x/J4A0\_/) page identifies and process for making updates to the COTS. This also describes the frequency of Changes to the system baseline and how they are implemented on an ad hoc basis. The depreciation of operating systems and devices are communicated according to the [non-functional](https://synthesis-software.atlassian.net/wiki/spaces/H/pages/2411921411/Communication+Schedule#Manual-Communication-Channels) communication in the Halo communication schedule.
