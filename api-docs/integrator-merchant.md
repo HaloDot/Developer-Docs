@@ -4,7 +4,7 @@
 
 ## Create Integrator Merchant
 
-<mark style="color:blue;">`POST`</mark> `https://`appserver`.{env}.haloplus.io/`integrator/merchants
+<mark style="color:blue;">`POST`</mark> `https://appserver.{env}.haloplus.io/integrator/merchants`
 
 Create a new merchant
 
