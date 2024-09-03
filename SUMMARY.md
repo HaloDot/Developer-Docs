@@ -12,6 +12,7 @@
   * [Authentication](api-docs/authentication.md)
   * [Get Transaction Status and Details](api-docs/get-transactions.md)
   * [Refunds](api-docs/refunds.md)
+  * [Create Integrator Merchant](api-docs/create-integrator-merchant.md)
 * [Tap on Own Device](tap-on-own-device/README.md)
   * [Create the Checkout](tap-on-own-device/create-the-checkout.md)
 * [Security Guidance](security-guidance/README.md)
