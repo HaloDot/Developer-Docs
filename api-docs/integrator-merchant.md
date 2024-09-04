@@ -14,12 +14,6 @@ Create a new merchant
 | ------------------------------------- | ------ | ---------------------------------------- |
 | env<mark style="color:red;">\*</mark> | String | The backend environment \[dev, qa, prod] |
 
-#### Headers
-
-| Name                                           | Type   | Description                           |
-| ---------------------------------------------- | ------ | ------------------------------------- |
-| x-api-header<mark style="color:red;">\*</mark> | String | The API Key retrieved from the Portal |
-
 #### Request Body
 
 | Name                                                     | Type        | Description                   |
