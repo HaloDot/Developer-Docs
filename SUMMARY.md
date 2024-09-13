@@ -17,5 +17,3 @@
   * [Create the Checkout](tap-on-own-device/create-the-checkout.md)
 * [Security Guidance](security-guidance/README.md)
   * [Key Management](security-guidance/key-management.md)
-* [Adapter](adapter/README.md)
-  * [Design Specification](adapter/design-specification.md)
