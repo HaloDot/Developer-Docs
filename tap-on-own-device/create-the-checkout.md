@@ -56,6 +56,8 @@ The payment flow is the same for all payments:
 4. When the link is selected or scanned the Halo Dot Plugin is invoked and the payment is processed.
 5. A notification is sent to the gateway's webhook server containing the payment outcome in which the gateway will return the outcome through webhook, return URL or listening service.
 
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
 ## Steps
 
 1. [Create the Checkout](create-the-checkout.md#id-1.-create-the-checkout)
