@@ -16,4 +16,5 @@
 * [Tap on Own Device](tap-on-own-device/README.md)
   * [Create the Checkout](tap-on-own-device/create-the-checkout.md)
 * [Security Guidance](security-guidance/README.md)
+  * [Security Architecture](security-guidance/security-architecture.md)
   * [Key Management](security-guidance/key-management.md)
