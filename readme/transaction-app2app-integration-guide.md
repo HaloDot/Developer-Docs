@@ -23,7 +23,7 @@ To initiate the transaction, the Customer Application must initiate the call bet
 5. So, at time of  transacting, the Consumer Application would have received a transaction ID and since the app itself cannot do a transaction, the Halo Backend signs a JWT specifically for this transaction to Identify it.
 6. &#x20;These are passed through to the SDK which uses the information to start the actually payment cycle process.&#x20;
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Once the Transaction ID and the JWT are received by the client App, it passes it to
 
@@ -35,7 +35,7 @@ Once the Transaction ID and the JWT are received by the client App, it passes it
 
 The Architecture is drawn below:&#x20;
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The UI data that is presented to the User so to Confirm the transaction and its details, this includes;
 
