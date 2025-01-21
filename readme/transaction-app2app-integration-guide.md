@@ -145,7 +145,55 @@ The call to the Halo backend to retrieve an Intent Session Token.
 
 **3. Send an Intent Request to the Halo Dot Go**
 
-We provide a sample code to help you with the intent request function call. The code is available in the App to app menu item in your Halo.Go Portal.
+We provide a sample code to help you with the intent request function call. The code is available in the App to App submenu under the "Help Center" tab in the menu in your [Halo.Go Portal](https://go.merchantportal.prod.haloplus.io/deeplinking).
+
+Here are the key components of the code as a simple guide:
+
+1. **Set key Halo intent constants**
+
+```kotlin
+    companion object {
+        private const val HALO_ACTION = "za.co.synthesis.halo.transaction"
+        private const val HALO_REQUEST_CODE = 38
+    }
+```
+2. **Check if the Halo.Go/Halo.Link app is installed**
+```kotlin
+    private fun isHaloInstalled(): Boolean {
+        val activities = packageManager.queryIntentActivities(Intent(HALO_ACTION), 0)
+        return activities.size > 0
+    }
+```
+3. **Create a function that will call Halo.Go/Halo.Link through an intent**
+```kotlin
+    private fun openHaloAppForTransaction(transactionId: String, jwt: String) {
+        val haloPaymentIntent = Intent(HALO_ACTION).apply {
+            putExtra("is_tap", true)
+            putExtra("transaction_id", transactionId)
+            putExtra("jwt", jwt)
+        }
+        startActivityForResult(haloPaymentIntent, HALO_REQUEST_CODE)
+    }
+```
+4. **Handle the result of the intent call**
+```kotlin
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == HALO_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val transactionId = data?.getStringExtra("result_transaction_id")
+                Toast.makeText(
+                    this,
+                    "Transaction success, transactionId = $transactionId",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(this, "Transaction cancelled or declined", Toast.LENGTH_SHORT).show()
+            }
+            return
+        }
+    }
+```
 
 ## 3. Deeplinking
 
