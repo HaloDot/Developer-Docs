@@ -7,12 +7,12 @@ description: >-
 
 ## 1. Architecture&#x20;
 
-To initiate the transaction, we recommend that the customer app initiate a call between itself and the customer backend first for it to create intent transaction by calling the Halo backend using the transaction's detail. This information is then stored in Halo Backend allowing the Halo app to fetch it. Otherwise, if the customer wishes to reduce the number of endpoint calls, they can pass through all the transaction details in the intent call itself - this is not available with deeplinking. The process is as follows:&#x20;
+To initiate a transaction, we recommend that the customer app initiate a call between itself and the customer backend first for it to create an intent transaction request by calling the Halo backend using the transaction's details. This information is then stored in the Halo backend, allowing the Halo app to fetch it. Otherwise, if the customer wishes to reduce the number of endpoint calls, they can pass through all the transaction details in the intent call itself - this is not available with deeplinking. The process is as follows:&#x20;
 
 ### Approach 1: Merchant Id Configurable Transaction
 > Note: We recommend this approach as it allows the customer to store the Halo backend api key and merchant id in their backend instead of baking it into the customer app. This is also useful for customers that have multiple merchant accounts that can receive a transaction request.&#x20;
 1. Customer app creates a request to the customer backend to create an intent transaction through a call to the Halo backend.
-2. The Customer backend will send the consumer transaction details received from the customer app and config in the customer backend:&#x20;
+2. The customer backend will send these consumer transaction details received from the customer app and config in the customer backend:&#x20;
 
 * unique transaction reference &#x20;
 * currency code &#x20;
@@ -20,10 +20,10 @@ To initiate the transaction, we recommend that the customer app initiate a call 
 * merchant id (retrieved from the Halo [Merchant Portal](https://go.merchantportal.prod.haloplus.io/)) &#x20;
 * timestamp &#x20;
 
-3. The Halo backend receives the request, stores the transaction data. &#x20;
+3. The Halo backend receives the request and stores the transaction data. &#x20;
 4. The Halo backend creates a consumer transaction ID along with a signed transaction token (JWT) and responds by sending these two items back to the customer backend. &#x20;
 5. The customer backend returns the consumer transaction ID and the transaction token (JWT) to the customer app. &#x20;
-6. The consumer transaction ID and transaction token (JWT) are sent through the intent call made to the Halo.Go/Halo.Link app. &#x20;
+6. The consumer transaction ID and transaction token (JWT) are sent through an intent call made to the Halo.Go/Halo.Link app. &#x20;
 7. The customer app waits for the Halo.Go/Halo.Link app to return control back to the customer app with a success or error code. &#x20;
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
@@ -31,16 +31,16 @@ To initiate the transaction, we recommend that the customer app initiate a call 
 Once the consumer transaction ID and the JWT are received by the Halo.Go/Halo.Link app, the following takes place:
 
 1. The app will validate the JWT and the consumer transaction ID. &#x20;
-2. The app will then request transaction details from the Halo Backend using the consumer transaction ID as a reference and the JWT as auth. &#x20;
+2. The app will then request transaction details from the Halo backend using the consumer transaction ID as a reference and the JWT as auth. &#x20;
 3. The Halo backend will return the transaction details if the transaction has not expired and if the JWT is valid. &#x20;
 4. The app will then begin processing the payment by fetching transaction configs and initiating a card read. &#x20;
-5. The app will then display the transaction result to the user and return control back to the customer app that initiated the intent transaction with a success or error code. &#x20;
+5. After the consumer has successfully tapped their card on the device, the app will then display the transaction result to the user and return control back to the customer app that initiated the intent transaction with a success or error code. &#x20;
 
 ### Approach 2: Constant Merchant Id Transaction
-> Note: This approach is useful for customers that have a single merchant account that can receive a transaction request. This only available for tap intent transaction, not TT3 and deeplinking.&#x20;
+> Note: This approach is useful for customers that have a single merchant account that can receive a transaction request. This is only available for tap intent transactions, not TT3 and deeplinking as of yet.&#x20;
 
 1. Customer app makes a call to the customer backend to get an intent session token which will be used for all transactions. &#x20;
-2. Customer app checks if the session token has not expired and then creates an intent with the transaction details: &#x20;
+2. Customer app checks if the session token has not expired and then creates an intent to the Halo.Go/Halo.Link app with the transaction details: &#x20;
 
 * unique transaction reference &#x20;
 * currency code &#x20;
@@ -52,8 +52,8 @@ Once the consumer transaction ID and the JWT are received by the Halo.Go/Halo.Li
 Once the transaction details are received by the Halo.Go/Halo.Link app, the following takes place:
 
 1. The app will validate the JWT session token and transaction details. &#x20;
-2. The app will then fetch transaction config if it has not been fetched before. &#x20;
-3. The app will initiated a card read and process the payment. &#x20;
+2. The app will then fetch transaction config if it has not been fetched before, and caches this config. &#x20;
+3. The app will initiate a card read and wait for the consumer to app their card on the device to process the payment. &#x20;
 4. The app will then display the transaction result to the user and return control back to the customer app that initiated the intent transaction with a success or error code. &#x20;
 
 ## 2. Android Intents API
@@ -63,7 +63,7 @@ Steps in this section:
 - Retrieve an `Intent Session Token` from the Halo Backend.
 - Send an Intent request to the Halo.Go/Halo.Link application.
 
-**1. Retrieve Transaction ID and JWT from Halo Backend**
+**1. Retrieve a Transaction ID and JWT from Halo Backend**
 
 _Let’s take a closer look at the API request._
 
@@ -131,7 +131,7 @@ The call to the Halo backend to retrieve an Intent Session Token.
 **Request Body**
 | Name                                               | Type    | Description                        |
 | -------------------------------------------------- | ------- | ---------------------------------- |
-| expiryMinutes       | Number  | Duration for which the intent session token should last before it expires. If not provided, the session token will expire after 1 hour/60 minutes. |
+| expiryMinutes       | Number  | Duration for which the intent session token should last before it expires. If not provided, the session token will expire after 1 hour/60 minutes. If specified please note the the min value is 60 minutes and the max value is 720 minutes. |
 
 {% tabs %}
 {% tab title="200: OK Intent Session Token Result" %}
@@ -149,7 +149,7 @@ We provide a sample code to help you with the intent request function call. The 
 
 ## 3. Deeplinking
 
-**1. Retrieve the Transaction URL from the Halo Backend**
+**1. Retrieve a Transaction Deep Link from the Halo Backend**
 
 You will need a `API Key` and `Merchant ID` from the [Merchant Portal](https://go.merchantportal.prod.haloplus.io/) for this API call. The response will contain a deep link that can be used to invoke the Halo.Go/Halo.Link app.
 
