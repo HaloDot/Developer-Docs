@@ -165,7 +165,8 @@ Here are the key components of the code as a simple guide:
     }
 ```
 3. **Create a function that will call Halo.Go/Halo.Link through an intent**
-3.1 Approach 1
+{% tabs %}
+{% tab title="Approach 1: Merchant Id Configurable Transaction" %}
 ```kotlin
     private fun openHaloAppForTransaction(transactionId: String, jwt: String) {
         val haloPaymentIntent = Intent(HALO_ACTION).apply {
@@ -176,7 +177,8 @@ Here are the key components of the code as a simple guide:
         startActivityForResult(haloPaymentIntent, HALO_REQUEST_CODE)
     }
 ```
-3.2 Approach 2
+{% endtab %}
+{% tab title="Approach 2: Constant Merchant Id Transaction" %}
 ```kotlin
     private fun openHaloAppForTransaction(transactionReference: String, amount: String, jwt: String) {
         val haloPaymentIntent = Intent(HALO_ACTION).apply {
@@ -189,6 +191,8 @@ Here are the key components of the code as a simple guide:
         startActivityForResult(haloPaymentIntent, HALO_REQUEST_CODE)
     }
 ```
+{% endtab %}
+{% endtabs %}
 4. **Handle the result of the intent call**
 ```kotlin
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
