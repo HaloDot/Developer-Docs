@@ -111,7 +111,7 @@ The call to the Halo Dot Backend to initiate an Intent Transaction.
 
 _Let’s take a closer look at the API request._
 
-<mark style="color:green;">`POST`</mark> `https://authserver.{env}.haloplus.io/{version}/refresh/intentSession`
+<mark style="color:green;">`POST`</mark> `https://authserver.{env}.haloplus.io/{version}/refresh/intentSessionToken`
 
 The call to the Halo backend to retrieve an Intent Session Token.
 
