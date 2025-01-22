@@ -53,7 +53,7 @@ Once the transaction details are received by the Halo.Go/Halo.Link app, the foll
 
 1. The app will validate the JWT session token and transaction details. &#x20;
 2. The app will then fetch transaction config if it has not been fetched before, and caches this config. &#x20;
-3. The app will initiate a card read and wait for the consumer to app their card on the device to process the payment. &#x20;
+3. The app will initiate a card read and wait for the consumer to tap their card on the device to process the payment. &#x20;
 4. The app will then display the transaction result to the user and return control back to the customer app that initiated the intent transaction with a success or error code. &#x20;
 
 ## 2. Android Intents API
