@@ -1,16 +1,18 @@
 ---
 description: >-
   Integration with Halo.Go application for TT3 Transactions using Android Intent
-  Mechanisms or Deeplinking.
+  Mechanisms or Deep linking.
 ---
 
 # TT3 App to App Integration Guide
+
+A **TT3 transaction**, in the context of banking, refers to a specific type of **debit order mandate authentication**. It's used for setting up recurring payments, like subscriptions or loan repayments.
 
 ## 1. Android Intents Mechanism
 
 Steps in this section:
 
-1. Retrieve a `Transaction ID` and payment `JWT`from the Halo Backend.
+1. Retrieve a `Transaction ID` and payment `JWT`from the Halo Backend (see [here](https://halo-dot-developer-docs.gitbook.io/halo-dot/readme/1.-getting-started#id-2.-intent-authorization) how to get them).
 2. Send an Intent Request to the Halo Dot Go application.
 
 **1. Retrieve Transaction ID and JWT from Halo Backend**
@@ -65,7 +67,8 @@ The call to the Halo Dot Backend to initiate a TT3 Intent Transaction.
 
 **2. Send an Intent Request to the Halo Dot Go**
 
-We provide a sample code to help you with the intent request function call. The code is available on your Halo Dot Go Merchant Portal. The code is made available in this repo over here.
+We provide a sample code to help you with the intent request function call. \
+The code is available on the [merchant portal](https://go.merchantportal.qa.haloplus.io/deeplinking) ⇒ Help Center => App to App menu item.
 
 ## 2. Deeplinking Mechanism
 
