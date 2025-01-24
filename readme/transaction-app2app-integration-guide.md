@@ -68,10 +68,6 @@ Steps in this section:
 * Retrieve an `Intent Session Token` from the Halo Backend.
 * Send an Intent request to the Halo.Go/Halo.Link application.
 
-1\. Retrieve a `Transaction ID` and payment `JWT` from the Halo Backend.&#x20;
-
-2\. Send an Intent Request to the Halo Dot Go application.
-
 **1. Retrieve a Transaction ID and JWT from Halo Backend**
 
 _Let’s take a closer look at the API request._
