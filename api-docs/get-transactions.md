@@ -8,7 +8,7 @@ description: >-
 
 ## Get Status of Transaction Request
 
-<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/QRCode/:reference`
+<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/consumer/QRCode/:reference`
 
 Asynchronously get Status of a transactions invoked through a link.
 
@@ -16,7 +16,6 @@ Asynchronously get Status of a transactions invoked through a link.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 #### Query Parameters
@@ -73,7 +72,7 @@ Asynchronously get Status of a transactions invoked through a link.
 
 ## Get Status of TT3 Transaction
 
-<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode/:reference`
+<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/consumer/tt3QRCode/:reference`
 
 Asynchronously get Status about TT3 transactions invoked through a link.
 
@@ -81,7 +80,6 @@ Asynchronously get Status about TT3 transactions invoked through a link.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 #### Query Parameters
@@ -258,7 +256,7 @@ It is possible to get more information about a transaction asynchronously with a
 
 _**Let’s take a closer look at the API request.**_&#x20;
 
-<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/{version}/transactions/:id`
+<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/transactions/:id`
 
 Asynchronously get details about transactions&#x20;
 
@@ -266,7 +264,6 @@ Asynchronously get details about transactions&#x20;
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 #### Query Parameters

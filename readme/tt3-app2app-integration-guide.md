@@ -23,7 +23,7 @@ _**Let’s take a closer look at the API request.**_&#x20;
 
 ## Intent Transaction
 
-<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3IntentTransaction`
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/consumer/tt3IntentTransaction`
 
 The call to the Halo Dot Backend to initiate a TT3 Intent Transaction.
 
@@ -31,7 +31,6 @@ The call to the Halo Dot Backend to initiate a TT3 Intent Transaction.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 #### Headers
@@ -87,7 +86,7 @@ _**Let’s take a closer look at the API request.**_
 
 ## Transaction URL
 
-<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/tt3QRCode`
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/consumer/tt3QRCode`
 
 The call to the Halo Dot Backend to initiate an Intent Transaction and retrieve a Transaction URL that can be used to invoke the Halo Dot Link application
 
@@ -95,7 +94,6 @@ The call to the Halo Dot Backend to initiate an Intent Transaction and retrieve 
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version.                     |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 #### Headers

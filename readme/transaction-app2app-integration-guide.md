@@ -76,7 +76,7 @@ Steps in this section:
 
 _Let’s take a closer look at the API request._
 
-<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/intentTransaction`
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/consumer/intentTransaction`
 
 The call to the Halo Dot Backend to initiate an Intent Transaction.
 
@@ -84,7 +84,6 @@ The call to the Halo Dot Backend to initiate an Intent Transaction.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version (optional)           |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 **Headers**
@@ -120,7 +119,7 @@ The call to the Halo Dot Backend to initiate an Intent Transaction.
 
 _Let’s take a closer look at the API request._
 
-<mark style="color:green;">`POST`</mark> `https://authserver.{env}.haloplus.io/{version}/refresh/intentSessionToken`
+<mark style="color:green;">`POST`</mark> `https://authserver.{env}.haloplus.io/refresh/intentSessionToken`
 
 The call to the Halo backend to retrieve an Intent Session Token.
 
@@ -128,7 +127,6 @@ The call to the Halo backend to retrieve an Intent Session Token.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version (optional)           |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 **Headers**
@@ -241,7 +239,7 @@ You will need a `API Key` and `Merchant ID` from the [Merchant Portal](https://g
 
 _**Let’s take a closer look at the API request.**_
 
-<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/qrCode`
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/consumer/qrCode`
 
 The call to the Halo backend to retrieve a deep link.
 
@@ -249,7 +247,6 @@ The call to the Halo backend to retrieve a deep link.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version (optional)           |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 **Headers**
