@@ -10,7 +10,7 @@ description: >-
 
 To initiate a transaction, we recommend that the customer app initiate a call between itself and the customer backend first for it to create an intent transaction request by calling the Halo backend using the transaction's details. This information is then stored in the Halo backend, allowing the Halo app to fetch it. Otherwise, if the customer wishes to reduce the number of endpoint calls, they can pass through all the transaction details in the intent call itself - this is not available with deeplinking. The process is as follows:
 
-### Approach 1: Merchant Id Configurable Transaction
+### Approach 1.1: Merchant Id Configurable Transaction
 
 > Note: We recommend this approach as it allows the customer to store the Halo backend api key and merchant id in their backend instead of baking it into the customer app. This is also useful for customers that have multiple merchant accounts that can receive a transaction request.
 
@@ -39,7 +39,7 @@ Once the consumer transaction ID and the JWT are received by the Halo.Go/Halo.Li
 4. The app will then begin processing the payment by fetching transaction configs and initiating a card read.
 5. After the consumer has successfully tapped their card on the device, the app will then display the transaction result to the user and return control back to the customer app that initiated the intent transaction with a success or error code.
 
-### Approach 2: Constant Merchant Id Transaction
+### Approach 1.2: Constant Merchant Id Transaction
 
 > Note: This approach is useful for customers that have a single merchant account that can receive a transaction request. This is only available for tap intent transactions, not TT3 and deeplinking as of yet.
 
@@ -76,7 +76,7 @@ Steps in this section:
 
 _Let’s take a closer look at the API request._
 
-<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/intentTransaction`
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/consumer/intentTransaction`
 
 The call to the Halo Dot Backend to initiate an Intent Transaction.
 
@@ -84,7 +84,6 @@ The call to the Halo Dot Backend to initiate an Intent Transaction.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version (optional)           |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 **Headers**
@@ -120,7 +119,7 @@ The call to the Halo Dot Backend to initiate an Intent Transaction.
 
 _Let’s take a closer look at the API request._
 
-<mark style="color:green;">`POST`</mark> `https://authserver.{env}.haloplus.io/{version}/refresh/intentSessionToken`
+<mark style="color:green;">`POST`</mark> `https://authserver.{env}.haloplus.io/refresh/intentSessionToken`
 
 The call to the Halo backend to retrieve an Intent Session Token.
 
@@ -128,7 +127,6 @@ The call to the Halo backend to retrieve an Intent Session Token.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version (optional)           |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 **Headers**
@@ -241,7 +239,7 @@ You will need a `API Key` and `Merchant ID` from the [Merchant Portal](https://g
 
 _**Let’s take a closer look at the API request.**_
 
-<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/{version}/consumer/qrCode`
+<mark style="color:green;">`POST`</mark> `https://kernelserver.{env}.haloplus.io/consumer/qrCode`
 
 The call to the Halo backend to retrieve a deep link.
 
@@ -249,7 +247,6 @@ The call to the Halo backend to retrieve a deep link.
 
 | Name                                      | Type   | Description                              |
 | ----------------------------------------- | ------ | ---------------------------------------- |
-| version<mark style="color:red;">\*</mark> | String | The backend version (optional)           |
 | env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
 
 **Headers**

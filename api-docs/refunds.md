@@ -4,14 +4,10 @@ description: Refund a transaction
 
 # Refunds
 
-{% swagger method="post" path="/refund" baseUrl="https://kernelserver.{env}.haloplus.io/{version}/transactions/{transactionId}" summary="" %}
+{% swagger method="post" path="/refund" baseUrl="https://kernelserver.{env}.haloplus.io/transactions/{transactionId}" summary="" %}
 {% swagger-description %}
 Asynchronously get details about transactions
 {% endswagger-description %}
-
-{% swagger-parameter in="path" name="version" type="String" required="true" %}
-The backend version.
-{% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="env" type="String" required="true" %}
 The backend environment [dev, qa, prod]
