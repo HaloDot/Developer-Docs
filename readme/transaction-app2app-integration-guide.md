@@ -29,7 +29,7 @@ To initiate a transaction, we recommend that the customer app initiate a call be
 6. The consumer transaction ID and transaction token (JWT) are sent through an intent call made to the Halo.Go/Halo.Link app.
 7. The customer app waits for the Halo.Go/Halo.Link app to return control back to the customer app with a success or error code.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Once the consumer transaction ID and the JWT are received by the Halo.Go/Halo.Link app, the following takes place:
 
@@ -68,7 +68,7 @@ Steps in this section:
 * Retrieve an `Intent Session Token` from the Halo Backend.
 * Send an Intent request to the Halo.Go/Halo.Link application.
 
-1\. Retrieve a `Transaction ID` and payment `JWT` from the Halo Backend.&#x20;
+1\. Retrieve a `Transaction ID` and payment `JWT` from the Halo Backend.
 
 2\. Send an Intent Request to the Halo Dot Go application.
 
@@ -82,9 +82,9 @@ The call to the Halo Dot Backend to initiate an Intent Transaction.
 
 **Path Parameters**
 
-| Name                                      | Type   | Description                              |
-| ----------------------------------------- | ------ | ---------------------------------------- |
-| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
+| Name                                  | Type   | Description                              |
+| ------------------------------------- | ------ | ---------------------------------------- |
+| env<mark style="color:red;">\*</mark> | String | The backend environment \[dev, qa, prod] |
 
 **Headers**
 
@@ -125,9 +125,9 @@ The call to the Halo backend to retrieve an Intent Session Token.
 
 **Path Parameters**
 
-| Name                                      | Type   | Description                              |
-| ----------------------------------------- | ------ | ---------------------------------------- |
-| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
+| Name                                  | Type   | Description                              |
+| ------------------------------------- | ------ | ---------------------------------------- |
+| env<mark style="color:red;">\*</mark> | String | The backend environment \[dev, qa, prod] |
 
 **Headers**
 
@@ -155,7 +155,7 @@ The call to the Halo backend to retrieve an Intent Session Token.
 
 **3. Send an Intent Request to the Halo Dot Go**
 
-We provide a sample code to help you with the intent request function call. \
+We provide a sample code to help you with the intent request function call.\
 The code is available on the [merchant portal](https://go.merchantportal.qa.haloplus.io/deeplinking) ⇒ Help Center => App to App menu item.
 
 Here are the key components of the code as a simple guide:
@@ -245,9 +245,9 @@ The call to the Halo backend to retrieve a deep link.
 
 **Path Parameters**
 
-| Name                                      | Type   | Description                              |
-| ----------------------------------------- | ------ | ---------------------------------------- |
-| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
+| Name                                  | Type   | Description                              |
+| ------------------------------------- | ------ | ---------------------------------------- |
+| env<mark style="color:red;">\*</mark> | String | The backend environment \[dev, qa, prod] |
 
 **Headers**
 
