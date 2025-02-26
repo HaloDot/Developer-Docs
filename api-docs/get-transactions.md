@@ -250,7 +250,75 @@ ISO 8589 Codes
 
 ```
 
-## Get Transactions Details
+## Get Tap on Own Transaction Status
+
+Get the status information of a tap on own transaction using the transaction's merchant reference.
+
+<mark style="color:blue;">`GET`</mark> `https://kernelserver.{env}.haloplus.io/consumer/taponown/:merchantReference`
+
+_**Let’s take a closer look at the API request.**_&#x20;
+
+#### Path Parameters
+
+| Name                                      | Type   | Description                              |
+| ----------------------------------------- | ------ | ---------------------------------------- |
+| env<mark style="color:red;">\*</mark>     | String | The backend environment \[dev, qa, prod] |
+
+#### Query Parameters
+
+| Name                                  | Type   | Description        |
+| ------------------------------------- | ------ | ------------------ |
+| :merchantReference<mark style="color:red;">\*</mark> | String | The merchant reference provided to the Halo.SDK when starting a transaction. |
+
+#### Headers
+
+| Name                                           | Type   | Description                                    |
+| ---------------------------------------------- | ------ | ---------------------------------------------- |
+| Authorization Bearer<mark style="color:red;">\*</mark> | String | The JWT received using the developer portal credentials (username and password) |
+
+> Note: To obtain this token you may need to make a POST call to https://authserver.{env}.haloplus.io/login and use {username:<username>,password:<password>} as your json body.
+
+{% tabs %}
+{% tab title="200: OK Status" %}
+```javascript
+{
+    "id": "693b47d8-e325-4808-8f86-67e388fd35ec",
+    "merchantReference": "My-Unique-Transaction-Reference",
+    "disposition": "Approved",
+    "errorCode": 0
+}
+```
+{% endtab %}
+{% tab title="400: Bad Request"%}
+```javascript
+{
+    "errorCode": 122,
+    "message": "E122: Transaction not found. It may have not gone online yet.",
+    "httpStatusCode": 400
+}
+```
+{% endtab %}
+{% tab title="500: Internal Error"%}
+```javascript
+{
+    "errorCode": 201,
+    "message": "Error finding requested transaction",
+    "httpStatusCode": 500
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Status Response Descriptions:
+| Field | Description | Type |
+| ---------------------------- | --------------------- | ---------------- |
+| id | Halo backend transaction id | String (UUID) |
+| merchantReference | Unique transaction reference provided by Halo.SDK integrating app. | String |
+| disposition | <p>The outcome of the transaction (e.g. Approved)<br><br></p><p>There are 5 possible values for <code>disposition</code>​:</p><ul><li><code>Approved</code>​ - this means we got an approved message back from the processor </li><li><code>Declined</code>​ - this means we received a decline from the processor</li><li><code>UnableToGoOnline</code>​ - this means we couldn't connect to the processor. Essentially a decline, but it tells us the decline is due to a network error, and not a card issue</li><li><code>Indeterminate</code>​ - this means we either received an error from the processor or no response. This means we are unable to determine the status of the transaction. Typically, we treat these as declines and then we attempt to void the transaction in the background, in the event that the processor got the message but we just didn't get the response</li><li><code>Voided</code>​ - the transaction was reversed.</li></ul> | String (32) |
+| errorCode | Halo backend error code| Number |
+| message | Halo backend error message in the event of an error| String |
+
+## Get Transaction Details
 
 It is possible to get more information about a transaction asynchronously with an API Call to the Halo Backend.
 
