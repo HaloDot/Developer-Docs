@@ -276,7 +276,7 @@ _**Let’s take a closer look at the API request.**_&#x20;
 | ---------------------------------------------- | ------ | ---------------------------------------------- |
 | Authorization Bearer<mark style="color:red;">\*</mark> | String | The JWT received using the developer portal credentials (username and password) |
 
-> Note: To obtain this token you may need to make a POST call to https://authserver.{env}.haloplus.io/login and use {username:<username>,password:<password>} as your json body.
+> Note: To obtain this token you may need to make a POST call to https://authserver.{env}.haloplus.io/login and use {username:your-username,password:your-password} as your json body.
 
 {% tabs %}
 {% tab title="200: OK Status" %}
